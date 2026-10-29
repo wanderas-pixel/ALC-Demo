@@ -1,0 +1,612 @@
+{
+  "admin_console_route": "/admin",
+  "sse_stream_endpoint": "/api/events/stream",
+  "inject_endpoint": "POST /api/admin/inject",
+  "reset_endpoint": "POST /api/admin/reset",
+  "baseline_state": {
+    "state_id": "CLEAN_BASELINE_T0",
+    "active_raw_alarms": 0,
+    "correlated_incidents": 0,
+    "zone_comfort_compliance_pct": 99.6,
+    "sla_status": "HEALTHY",
+    "historical_events_count": 322
+  },
+  "live_scenarios": {
+    "OPTION_A_SCN1_CASCADING_RTU1_FAILURE": {
+      "scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+      "button_label": "Option A \u2014 Trigger Cascading Rooftop Unit Failure (RTU-1 -> 14 1st-Floor Zones)",
+      "badge": "15 Raw Alarms -> 1 Root Cause Incident (93.3% Noise Reduction)",
+      "root_cause_node": "bldg:area_ec_ahu_1",
+      "root_cause_dbid": "DBID:1:856800",
+      "target_agent": "Triage_And_RootCause_Agent",
+      "waves": [
+        {
+          "wave_index": 1,
+          "delay_seconds": 0,
+          "title": "Upstream Rooftop Unit Stage-1 DX Compressor Trip",
+          "telemetry_override": {
+            "point_id": "bldg:area_ec_ahu_1__sat",
+            "previous_value": 55.0,
+            "injected_value": 68.5,
+            "unit": "DEG_F"
+          },
+          "events": [
+            {
+              "event_id": "ALM-0323",
+              "timestamp": "2026-10-07 06:15:00",
+              "equipment_id": "bldg:area_ec_ahu_1",
+              "controller_id": "bldg:bacnet_device_301003",
+              "network_id": "bldg:network_3011",
+              "event_category": "MECHANICAL_COOLING_STAGE_FAULT",
+              "severity": "CRITICAL",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "RTU-1 (ACME) BACnet Integration to UPC [DBID:1:856800]: Supply Air Temp drifted to 68.5 F vs 55.0 F setpoint (Stage-1 DX Compressor Trip)"
+            }
+          ],
+          "affected_rooms": []
+        },
+        {
+          "wave_index": 2,
+          "delay_seconds": 3,
+          "title": "Wave 1 Downstream Thermal Starvation (PIU 1 - PIU 5)",
+          "events": [
+            {
+              "event_id": "ALM-0324",
+              "timestamp": "2026-10-07 07:10:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_1_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 1 (NSA Office): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0325",
+              "timestamp": "2026-10-07 07:12:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_2_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 2 (Lobby): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0326",
+              "timestamp": "2026-10-07 07:14:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_3_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 3 (OEM): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0327",
+              "timestamp": "2026-10-07 07:16:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_4_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 4 (OEM): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0328",
+              "timestamp": "2026-10-07 07:18:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_5_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 5 (7-11) [Alarm #44]: Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            }
+          ],
+          "affected_rooms": [
+            "bldg:room_1f_nsa_office",
+            "bldg:room_1f_lobby",
+            "bldg:room_1f_oem",
+            "bldg:room_1f_7_11"
+          ]
+        },
+        {
+          "wave_index": 3,
+          "delay_seconds": 6,
+          "title": "Wave 2 Downstream Thermal Starvation (PIU 6 - PIU 10)",
+          "events": [
+            {
+              "event_id": "ALM-0329",
+              "timestamp": "2026-10-07 07:20:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_6_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 6 (7-11): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0330",
+              "timestamp": "2026-10-07 07:22:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_7_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 7 (NSA Cubes): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0331",
+              "timestamp": "2026-10-07 07:24:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_8_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 8 (Break Room): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0332",
+              "timestamp": "2026-10-07 07:26:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_9_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 9 (NSA Cubes): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0333",
+              "timestamp": "2026-10-07 07:28:00",
+              "equipment_id": "bldg:ec_1st_floor_piu_10_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "PIU 10 (NSA Offices) [Alarm #41]: Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            }
+          ],
+          "affected_rooms": [
+            "bldg:room_1f_nsa_cubes",
+            "bldg:room_1f_break_room",
+            "bldg:room_1f_nsa_offices"
+          ]
+        },
+        {
+          "wave_index": 4,
+          "delay_seconds": 9,
+          "title": "Wave 3 VAV Damper Saturation (VAV 1, VAV 2, VAV 4, VAV 5) & Autonomous ADK 2.0 Triage",
+          "events": [
+            {
+              "event_id": "ALM-0334",
+              "timestamp": "2026-10-07 07:30:00",
+              "equipment_id": "bldg:ec_1st_floor_vav_1_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "VAV 1 (ALCS/TPI): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0335",
+              "timestamp": "2026-10-07 07:32:00",
+              "equipment_id": "bldg:ec_1st_floor_vav_2_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "VAV 2 (NSA Copier): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0336",
+              "timestamp": "2026-10-07 07:34:00",
+              "equipment_id": "bldg:ec_1st_floor_vav_4_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "VAV 4 (NSA Cubes): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            },
+            {
+              "event_id": "ALM-0337",
+              "timestamp": "2026-10-07 07:36:00",
+              "equipment_id": "bldg:ec_1st_floor_vav_5_1",
+              "controller_id": "bldg:bacnet_device_301002",
+              "network_id": "bldg:network_102",
+              "event_category": "DOWNSTREAM_ZONE_TEMP_HIGH",
+              "severity": "HIGH",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+              "message": "VAV 5 (NSA): Zone temperature > 76.2 F and primary damper saturated at 100% (Upstream AHU-1 thermal starvation)"
+            }
+          ],
+          "affected_rooms": [
+            "bldg:room_1f_alcs_tpi",
+            "bldg:room_1f_nsa_copier",
+            "bldg:room_1f_nsa"
+          ],
+          "autonomous_agent_action": {
+            "orchestrator": "ABO_Orchestrator_Agent",
+            "subagent": "Triage_And_RootCause_Agent",
+            "gql_query_executed": "GRAPH acme_abo_telemetry.acme_building_graph MATCH (ahu:Equipment)-[:FEEDS]->(z:Equipment)-[:LOCATED_IN]->(r:Space) WHERE ahu.node_id = 'bldg:area_ec_ahu_1'",
+            "collapsed_incident_title": "INC-1001: Rooftop AHU-1 Stage-1 DX Cooling Trip Starving 14 1st-Floor Zones",
+            "hitl_remediation_proposal": {
+              "target_device": "bldg:bacnet_device_301003",
+              "bacnet_uri": "bacnet://301003/BV:2",
+              "command": "Enable Stage-2 Auxiliary DX Cooling & Reset Supply Air Temp Setpoint to 54.0 F",
+              "priority_level": 8
+            }
+          }
+        }
+      ]
+    },
+    "OPTION_B_SCN4_SERVER_ROOM_PREDICTIVE_SLA": {
+      "scenario_id": "SCN-4_CRITICAL_SERVER_ROOM_SLA",
+      "button_label": "Option B \u2014 Trigger Critical Server Room Predictive Alert (ISS Server Room FCU)",
+      "badge": "2 Predictive Alerts -> Tier-1 Mission Critical SLA Protection",
+      "root_cause_node": "bldg:ec_1st_floor_ec_server_rm",
+      "root_cause_dbid": "DBID:1:856291",
+      "target_agent": "Predictive_Maintenance_And_SLA_Agent",
+      "waves": [
+        {
+          "wave_index": 1,
+          "delay_seconds": 0,
+          "title": "TimesFM Anomaly Detection: 3.5x Stage-1 DX Compressor Short-Cycling",
+          "telemetry_override": {
+            "point_id": "bldg:ec_1st_floor_ec_server_rm__cool_1",
+            "previous_value": 1.0,
+            "injected_value": 3.5,
+            "unit": "CYCLES_PER_HR_RATIO"
+          },
+          "events": [
+            {
+              "event_id": "ALM-0359",
+              "timestamp": "2026-10-07 09:15:00",
+              "equipment_id": "bldg:ec_1st_floor_ec_server_rm",
+              "controller_id": "bldg:bacnet_device_301101",
+              "network_id": "bldg:network_888",
+              "event_category": "PREDICTIVE_COMPRESSOR_SHORT_CYCLING",
+              "severity": "CRITICAL",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-4_CRITICAL_SERVER_ROOM_SLA",
+              "message": "ISS Server Room FCU [DBID:1:856291]: Stage-1 DX Cooling cycle_count spiked 3.5x above 28-day baseline (TimesFM AI.DETECT_ANOMALIES p=0.998)"
+            }
+          ],
+          "affected_rooms": [
+            "bldg:room_1f_server_rm"
+          ]
+        },
+        {
+          "wave_index": 2,
+          "delay_seconds": 3,
+          "title": "Tier-1 SLA Thermal Drift Warning (+1.8 F Creep -> 75.0 F SLA Breach in 3.5h) & Autonomous ADK 2.0 Action",
+          "telemetry_override": {
+            "point_id": "bldg:ec_1st_floor_ec_server_rm__space_temp",
+            "previous_value": 70.2,
+            "injected_value": 72.0,
+            "sla_limit": 75.0,
+            "unit": "DEG_F"
+          },
+          "events": [
+            {
+              "event_id": "ALM-0360",
+              "timestamp": "2026-10-07 09:25:00",
+              "equipment_id": "bldg:ec_1st_floor_ec_server_rm",
+              "controller_id": "bldg:bacnet_device_301101",
+              "network_id": "bldg:network_888",
+              "event_category": "SLA_TIER1_THERMAL_DRIFT_WARNING",
+              "severity": "CRITICAL",
+              "status": "ACTIVE_UNACKNOWLEDGED",
+              "golden_scenario_id": "SCN-4_CRITICAL_SERVER_ROOM_SLA",
+              "message": "ISS Server Room [REC Tier-1 Mission Critical Space]: Zone temperature crept +1.8 F (70.2 F -> 72.0 F); projected to breach 75.0 F SLA limit within 3.5 hours"
+            }
+          ],
+          "affected_rooms": [
+            "bldg:room_1f_server_rm"
+          ],
+          "autonomous_agent_action": {
+            "orchestrator": "ABO_Orchestrator_Agent",
+            "subagent": "Predictive_Maintenance_And_SLA_Agent",
+            "bqml_query_executed": "SELECT * FROM AI.DETECT_ANOMALIES(MODEL `acme_abo_telemetry.server_rm_forecaster`, ...)",
+            "collapsed_incident_title": "INC-1004: ISS Server Room FCU Compressor Short-Cycling (3.5x) & Imminent Tier-1 SLA Breach",
+            "hitl_remediation_proposal": {
+              "target_device": "bldg:bacnet_device_301101",
+              "bacnet_uri": "bacnet://301101/AV:4",
+              "command": "Widen Deadband +1.0 F to Stop Short-Cycling, Engage Auxiliary Chilled-Water Fan Coil & Dispatch Priority-1 Ticket",
+              "priority_level": 8
+            }
+          }
+        }
+      ]
+    },
+    "OPTIONAL_SCN2_MSTP102_BUS_STORM": {
+      "scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+      "button_label": "Optional \u2014 Trigger BACnet MS/TP-102 Bus Storm & Subnet Mismatch (#301002 & #71101)",
+      "events": [
+        {
+          "event_id": "ALM-0338",
+          "timestamp": "2026-10-07 08:05:00",
+          "equipment_id": "bldg:1st_floor_lighitng",
+          "controller_id": "bldg:bacnet_device_71101",
+          "network_id": "bldg:network_888",
+          "event_category": "BACNET_IP_SUBNET_MISMATCH",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MES eBox - Showcase (#71101 on IP 172.31.222.99): Subnet mask 255.255.255.0 conflicts with /26 (255.255.255.192) on BACnet/IP net 888, causing BBMD broadcast retries"
+        },
+        {
+          "event_id": "ALM-0339",
+          "timestamp": "2026-10-07 08:12:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_10220",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "ZN341v+ Restrooms 20 (bldg:bacnet_device_10220) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0340",
+          "timestamp": "2026-10-07 08:14:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_10221",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "ZN341v+ Show Case (bldg:bacnet_device_10221) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0341",
+          "timestamp": "2026-10-07 08:16:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_10222",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "ZN341v+ Break Room (bldg:bacnet_device_10222) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0342",
+          "timestamp": "2026-10-07 08:18:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_10233",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "ZN341v+ Admin office 33 (bldg:bacnet_device_10233) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0343",
+          "timestamp": "2026-10-07 08:20:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_10234",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "ZN341v+ Test Lab 50 (bldg:bacnet_device_10234) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0344",
+          "timestamp": "2026-10-07 08:22:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:bacnet_device_301002",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "Router: 02 AMR/UNI-32 (bldg:bacnet_device_301002) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0345",
+          "timestamp": "2026-10-07 08:24:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_piu_00_piu5_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel piu_00_piu5_worx_wip (bldg:program_piu_00_piu5_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0346",
+          "timestamp": "2026-10-07 08:26:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_piu_00_piu6_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel piu_00_piu6_worx_wip (bldg:program_piu_00_piu6_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0347",
+          "timestamp": "2026-10-07 08:28:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_piu_00_share_3_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel piu_00_share_3_worx_wip (bldg:program_piu_00_share_3_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0348",
+          "timestamp": "2026-10-07 08:30:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_piu_00_share_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel piu_00_share_worx_wip (bldg:program_piu_00_share_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0349",
+          "timestamp": "2026-10-07 08:32:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_piu_00_worx_wip03",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel piu_00_worx_wip03 (bldg:program_piu_00_worx_wip03) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0350",
+          "timestamp": "2026-10-07 08:34:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_vav_00_share_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel vav_00_share_worx_wip (bldg:program_vav_00_share_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0351",
+          "timestamp": "2026-10-07 08:36:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_vav_00_vav1_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel vav_00_vav1_worx_wip (bldg:program_vav_00_vav1_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0352",
+          "timestamp": "2026-10-07 08:38:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_vav_00_vav4_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel vav_00_vav4_worx_wip (bldg:program_vav_00_vav4_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0353",
+          "timestamp": "2026-10-07 08:40:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_vav_00_vav5_worx_wip",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel vav_00_vav5_worx_wip (bldg:program_vav_00_vav5_worx_wip) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        },
+        {
+          "event_id": "ALM-0354",
+          "timestamp": "2026-10-07 08:42:00",
+          "equipment_id": "bldg:alcs_development_area_area3011",
+          "controller_id": "bldg:program_vav_00_worx_wip01",
+          "network_id": "bldg:network_102",
+          "event_category": "BACNET_MSTP_POLL_TIMEOUT",
+          "severity": "HIGH",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+          "message": "MS/TP-102 Channel vav_00_worx_wip01 (bldg:program_vav_00_worx_wip01) on RS-485 bus MSTP-102 behind Router 02 AMR/UNI-32 (#301002): 42% APDU packet loss & stale Present_Value"
+        }
+      ]
+    },
+    "OPTIONAL_SCN3_SILENT_ENERGY_BLEED": {
+      "scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+      "button_label": "Optional \u2014 Trigger 2nd-Floor Silent Energy Bleed Discovery ($18,400/yr)",
+      "events": [
+        {
+          "event_id": "ALM-0355",
+          "timestamp": "2026-10-07 08:45:00",
+          "equipment_id": "bldg:ec_2nd_floor_area9_emrd_2_piu_1",
+          "controller_id": "bldg:bacnet_device_3010001",
+          "network_id": "bldg:network_30100",
+          "event_category": "ENERGY_DRIFT_SETBACK_ANOMALY",
+          "severity": "MEDIUM",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+          "message": "PIU 2-1 Huddle / PIU 2-3: Simultaneous heating & cooling reheat outlier (42 kWh = 54% of entire 2nd-floor reheat energy)"
+        },
+        {
+          "event_id": "ALM-0356",
+          "timestamp": "2026-10-07 08:48:00",
+          "equipment_id": "bldg:ec_2nd_floor_area7_emrd_2_piu_20",
+          "controller_id": "bldg:bacnet_device_3010020",
+          "network_id": "bldg:network_30100",
+          "event_category": "ENERGY_DRIFT_SETBACK_ANOMALY",
+          "severity": "MEDIUM",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+          "message": "PIU 2-20 Open Office 201A: Rogue electric reheat consumption (26 kWh despite 17% daytime room occupancy)"
+        },
+        {
+          "event_id": "ALM-0357",
+          "timestamp": "2026-10-07 08:51:00",
+          "equipment_id": "bldg:area_ec_ahu_2",
+          "controller_id": "bldg:bacnet_device_301003",
+          "network_id": "bldg:network_30100",
+          "event_category": "ENERGY_DRIFT_SETBACK_ANOMALY",
+          "severity": "MEDIUM",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+          "message": "2nd Floor Fleet Drift: Missing Night Setback (72.2 F night avg vs 72.0 F day avg) & 37% night fan runtime ($18,400/yr waste)"
+        },
+        {
+          "event_id": "ALM-0358",
+          "timestamp": "2026-10-07 08:54:00",
+          "equipment_id": "bldg:ec_2nd_floor_area8_emrd_2_piu_8",
+          "controller_id": "bldg:bacnet_device_3010008",
+          "network_id": "bldg:network_30100",
+          "event_category": "ENERGY_DRIFT_SETBACK_ANOMALY",
+          "severity": "MEDIUM",
+          "status": "ACTIVE_UNACKNOWLEDGED",
+          "golden_scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+          "message": "PIU 2-8 Open Office 232: Nighttime airflow averaging 394 cfm vs 183 cfm daytime (unoccupied schedule inversion)"
+        }
+      ]
+    }
+  }
+}

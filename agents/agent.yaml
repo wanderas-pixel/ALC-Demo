@@ -1,0 +1,73 @@
+# =============================================================================
+# ACME Co. Autonomous Building Operations (ABO)
+# ADK 2.0 & agents-cli Root Configuration — Agent Platform Runtime
+# =============================================================================
+name: acme-abo-multi-agent-system
+version: "2.0.0"
+description: >
+  Hierarchical ADK 2.0 multi-agent system for ACME Co. Autonomous Building Operations
+  running on Google Cloud Agent Platform Runtime. Governed by Agent Gateway, per-agent
+  cryptographic Agent Identity, centralized Agent Registry, and full OpenTelemetry (OTel)
+  distributed tracing, metrics, and log correlation.
+
+runtime:
+  framework: google-adk>=2.0.0
+  harness: agents-cli
+  default_model: gemini-3.8-flash
+  deployment_target:
+    service: agent-platform-runtime
+    runtime_name: acme-abo-agent-platform-runtime
+    region: us-central1
+    agent_gateway:
+      name: acme-abo-agent-gateway
+      config_path: agents/gateway/agent_gateway_config.yaml
+    agent_registry:
+      name: acme-abo-agent-registry
+      manifest_path: agents/registry/agent_registry_manifest.json
+    observability:
+      provider: opentelemetry
+      module: agents.observability.otel_setup
+      exporters:
+        - gcp-cloud-trace
+        - gcp-cloud-monitoring
+        - gcp-cloud-logging
+      w3c_trace_context: true
+      sampling_ratio: 1.0
+
+root_agent:
+  module: agents.supervisor.agent
+  symbol: abo_supervisor_agent
+  model: gemini-3.8-flash
+  agent_identity: sa-agent-supervisor@genai-demos-391416.iam.gserviceaccount.com
+  registry_uri: registry://acme-abo-agent-registry/abo_supervisor_agent:2.0.0
+
+subagents:
+  - name: alarm_triage_agent
+    module: agents.subagents.alarm_triage.agent
+    symbol: alarm_triage_agent
+    model: gemini-3.8-flash
+    agent_identity: sa-agent-triage@genai-demos-391416.iam.gserviceaccount.com
+    registry_uri: registry://acme-abo-agent-registry/alarm_triage_agent:2.0.0
+  - name: cross_layer_rca_agent
+    module: agents.subagents.cross_layer_rca.agent
+    symbol: cross_layer_rca_agent
+    model: gemini-3.8-flash
+    agent_identity: sa-agent-rca@genai-demos-391416.iam.gserviceaccount.com
+    registry_uri: registry://acme-abo-agent-registry/cross_layer_rca_agent:2.0.0
+  - name: energy_optimization_agent
+    module: agents.subagents.energy_optimizer.agent
+    symbol: energy_optimization_agent
+    model: gemini-3.8-flash
+    agent_identity: sa-agent-energy@genai-demos-391416.iam.gserviceaccount.com
+    registry_uri: registry://acme-abo-agent-registry/energy_optimization_agent:2.0.0
+  - name: remediation_dispatch_agent
+    module: agents.subagents.remediation_dispatch.agent
+    symbol: remediation_dispatch_agent
+    model: gemini-3.8-flash
+    agent_identity: sa-agent-remediation@genai-demos-391416.iam.gserviceaccount.com
+    registry_uri: registry://acme-abo-agent-registry/remediation_dispatch_agent:2.0.0
+    hitl_enabled: true
+
+evaluation:
+  suite: agents/evals/golden_scenarios.eval.json
+  assertions: agents/evals/trajectory_assertions.yaml

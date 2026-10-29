@@ -1,0 +1,65 @@
+# =============================================================================
+# ACME Co. Autonomous Building Operations (ABO)
+# Cloud Workflows State Machine: 11-Step "SHACL as Reward" Ontology Onboarding
+# =============================================================================
+main:
+  params: [args]
+  steps:
+    - init:
+        assign:
+          - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+          - bucket: ${args.staging_bucket}
+          - model: "gemini-3.8-flash"
+          - max_shacl_iterations: 5
+          - iteration: 0
+          - shacl_conforms: false
+    - step_1_to_3_extract_bas_databases:
+        call: http.post
+        args:
+          url: ${args.extractor_cloud_run_url + "/extract-derby-and-bacnet"}
+          auth:
+            type: OIDC
+          body:
+            bucket: ${bucket}
+            core_db_path: "dbbackup/core"
+            trend_db_path: "dbbackup/trend"
+            points_log_path: "SystemPointsLog.txt"
+        result: extraction_result
+    - shacl_reward_loop:
+        switch:
+          - condition: ${shacl_conforms == true or iteration >= max_shacl_iterations}
+            next: step_11_materialize_bigquery_graph
+        next: step_6_to_9_synthesise_and_validate_ttl
+    - step_6_to_9_synthesise_and_validate_ttl:
+        call: http.post
+        args:
+          url: ${args.extractor_cloud_run_url + "/synthesize-and-validate-shacl"}
+          auth:
+            type: OIDC
+          body:
+            llm_model: ${model}
+            iteration: ${iteration}
+            extraction_manifest: ${extraction_result.body}
+        result: validation_report
+    - update_loop_state:
+        assign:
+          - shacl_conforms: ${validation_report.body.conforms}
+          - iteration: ${iteration + 1}
+        next: shacl_reward_loop
+    - step_11_materialize_bigquery_graph:
+        call: http.post
+        args:
+          url: ${args.extractor_cloud_run_url + "/load-bigquery-property-graph"}
+          auth:
+            type: OIDC
+          body:
+            dataset_id: "acme_abo_telemetry"
+            validated_ttl_uri: ${validation_report.body.ttl_gcs_uri}
+        result: bq_load_status
+    - finish:
+        return:
+          status: "SUCCESS"
+          shacl_iterations: ${iteration}
+          conforms: ${shacl_conforms}
+          graph_summary: ${bq_load_status.body}
+

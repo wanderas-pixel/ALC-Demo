@@ -1,0 +1,644 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ec network topology</title>
+<style>body{font:14px -apple-system,Segoe UI,sans-serif;margin:20px;color:#24292f}table{border-collapse:collapse;margin:12px 0}
+td,th{border:1px solid #d0d7de;padding:4px 10px;text-align:left;font-size:12px}svg text{font-family:inherit}
+.box{overflow:auto;border:1px solid #d0d7de;border-radius:6px;background:#fff}.note{max-width:980px;line-height:1.5}</style></head><body>
+<h2>Network topology: ec</h2>
+<p class="note"><b>Overall: hybrid.</b> A tree of 7 BACnet networks (3 ARCNET, 1 BACnet/IP, 1 BACnet/SC, 2 MS/TP) joined by 6 router links.
+Stars: BACnet/IP and BACnet/SC. Buses: MS/TP and ARCNET (ARCNET may also be hub-star; not recorded).
+<b>No ring was found</b>, but this export cannot show one: the network tree gives each network a single upstream router, so redundant or looped paths would not appear.
+Solid boxes are recorded in the WebCTRL core database. <i>Dashed boxes are inferred</i>: switches, the SC hub and gateways come from IP addresses, masks, gateways and NAT addresses; the real count, models and cabling are not in the export.
+Hover a controller for its equipment and programs.</p>
+<p><span style="border-left:12px solid #1f6feb;padding-left:6px;margin-right:18px"><b>BACnet/IP</b> star</span><span style="border-left:12px solid #8250df;padding-left:6px;margin-right:18px"><b>BACnet/SC</b> star</span><span style="border-left:12px solid #1a7f37;padding-left:6px;margin-right:18px"><b>ARCNET</b> bus</span><span style="border-left:12px solid #bc4c00;padding-left:6px;margin-right:18px"><b>MS/TP</b> bus</span><span><b>Dashed</b> = inferred</span></p>
+<label>Zoom <input id="z" type="range" min="25" max="150" value="60"></label>
+<div class="box"><svg id="s" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3334 1204" width="2000.3999999999999" height="722.4"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#24292f"/></marker></defs>
+<rect x="1516.7" y="20" width="300.6" height="202" rx="10" fill="#8250df0d" stroke="#8250df" stroke-width="1.5"/>
+<text x="1534.7" y="40" font-size="13" font-weight="700" fill="#8250df">BACnet/SC · network 2401</text>
+<text x="1534.7" y="56" font-size="10" fill="#57606a">BACnet/SC · logical star around an SC hub (inferred)</text>
+<g><title>BACnet/SC network 2401: at least one hub or switch is implied. Count and location are not in the export.</title><rect x="1582.0" y="66" width="170" height="44" rx="6" fill="#ffffff" stroke="#8250df" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1667.0" y="85" font-size="11" font-weight="600" text-anchor="middle" font-style="italic">SC hub (inferred)</text><text x="1667.0" y="100" font-size="10" text-anchor="middle" fill="#57606a" font-style="italic">net 2401</text></g>
+<line x1="1667.0" y1="110" x2="1667.0" y2="150" stroke="#8250df" stroke-width="2"/>
+<g><title>G5RE BACnet/SC (g5re_bacnet_sc)
+model G5RE, BACnet instance 240004, MAC 00-00-00-03-a9-84
+no equipment linked</title><rect x="1592.0" y="150" width="150" height="54" rx="6" fill="#8250df22" stroke="#8250df" stroke-width="2.5"/><text x="1600.0" y="167" font-size="11" font-weight="600">G5RE BACnet/SC</text><text x="1600.0" y="182" font-size="10" fill="#57606a">G5RE · #240004</text><text x="1600.0" y="196" font-size="10" fill="#57606a">0 equipment · mac 00-00-00-03-a…</text><text x="1734.0" y="182" font-size="9" font-weight="700" text-anchor="end" fill="#8250df">ROUTER</text></g>
+<rect x="1164.0" y="292" width="1006" height="202" rx="10" fill="#1f6feb0d" stroke="#1f6feb" stroke-width="1.5"/>
+<text x="1182.0" y="312" font-size="13" font-weight="700" fill="#1f6feb">BACnet/IP · network 888</text>
+<text x="1182.0" y="328" font-size="10" fill="#57606a">Bacnet IP 888 · Ethernet star around a switch (inferred)</text>
+<g><title>BACnet/IP network 888: at least one hub or switch is implied. IP devices share subnet(s) 172.31.222.64/26. Count and location are not in the export.</title><rect x="1470.0" y="338" width="170" height="44" rx="6" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1555.0" y="357" font-size="11" font-weight="600" text-anchor="middle" font-style="italic">Switch (inferred)</text><text x="1555.0" y="372" font-size="10" text-anchor="middle" fill="#57606a" font-style="italic">net 888</text></g>
+<line x1="1640.0" y1="360.0" x2="1654.0" y2="360.0" stroke="#1f6feb" stroke-width="2" stroke-dasharray="5 4"/>
+<g><title>Default gateway 172.31.222.65 configured on 5 device(s): BAC0, G5CE - Advantec, advantec ls-cpu, OF-G5CE, ME-LGR200 (Server Room) (BBMD). NAT address(es) 172.31.239.22 suggest a NAT/firewall router. The gateway device itself is not in the export.</title><rect x="1654.0" y="338" width="210" height="44" rx="6" fill="#ffffff" stroke="#6e7781" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1759.0" y="357" font-size="11" font-weight="600" text-anchor="middle" font-style="italic">Gateway 172.31.222.65</text><text x="1759.0" y="372" font-size="10" text-anchor="middle" fill="#57606a" font-style="italic">NAT 172.31.239.22</text></g>
+<line x1="1555.0" y1="382" x2="1257.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<line x1="1555.0" y1="382" x2="1421.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<line x1="1555.0" y1="382" x2="1585.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<line x1="1555.0" y1="382" x2="1749.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<line x1="1555.0" y1="382" x2="1913.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<line x1="1555.0" y1="382" x2="2077.0" y2="422" stroke="#1f6feb" stroke-width="2"/>
+<g><title>BAC0 (iaq_datalogger2)
+model -, BACnet instance 101, MAC 172.31.222.112:47810
+IP 172.31.222.112 mask 255.255.255.192 gateway 172.31.222.65
+no equipment linked</title><rect x="1182.0" y="422" width="150" height="54" rx="6" fill="#ffffff" stroke="#1f6feb" stroke-width="1.2"/><text x="1190.0" y="439" font-size="11" font-weight="600">BAC0</text><text x="1190.0" y="454" font-size="10" fill="#57606a">device · #101</text><text x="1190.0" y="468" font-size="10" fill="#57606a">0 equipment · 172.31.222.112</text></g>
+<g><title>MES eBox - Showcase (mes_ebox_-_showcase)
+model -, BACnet instance 71101, MAC 172.31.222.99
+IP 172.31.222.99 mask 255.255.255.0 gateway 0.0.0.0
+subnet mask differs from the other devices on this network
+no equipment linked</title><rect x="1346.0" y="422" width="150" height="54" rx="6" fill="#ffffff" stroke="#1f6feb" stroke-width="1.2"/><text x="1354.0" y="439" font-size="11" font-weight="600">MES eBox - Showcase</text><text x="1354.0" y="454" font-size="10" fill="#57606a">device · #71101</text><text x="1354.0" y="468" font-size="10" fill="#57606a">0 equipment · 172.31.222.99</text></g>
+<g><title>G5CE - Advantec (g5ce_-_advantec)
+model G5CE, BACnet instance 260000, MAC 172.31.222.106:47810
+IP 172.31.222.106 mask 255.255.255.192 gateway 172.31.222.65
+serves: RTU 2_IAQVentCtrl [vav_iaqventctrl_rtu_nodye_ec]
+serves: PIU 2-1_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-2_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-3_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-4_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-5_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-6_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-7_IAQVentCtrl_Zone3 [vav_iaqventctrl_zone_ec]
+serves: PIU 2-8_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-11_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-12_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-13_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-14_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-15_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-16_IAQVentCtrl_Zone2 [vav_iaqventctrl_zone_ec]
+serves: PIU 2-17_IAQVentCtrl_Zone4 [vav_iaqventctrl_zone_ec]
+serves: PIU 2-18_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-19_IAQVentCtrl [vav_iaqventctrl_zone_ec]
+serves: PIU 2-20_IAQVentCtrl_Zone1 [vav_iaqventctrl_rmap_zone_ec_zone1test]
+serves: PIU 2-22_IAQVentCtrl_Zone5 [vav_iaqventctrl_rmap_zone_ec]
+serves: Kaiterra_Zone1 [iaq_kaiterra_1_0]
+serves: Kaiterra_Zone2 [iaq_kaiterra_1_0]
+serves: Kaiterra_Zone3 [iaq_kaiterra_1_0]
+serves: Kaiterra_Zone4 [iaq_kaiterra_1_0]
+serves: Kaiterra_Zone5 [iaq_kaiterra_1_0]
+serves: Apollogic_Zone4 [iaq_datalogger_1_2]
+serves: Apollogic_Zone3 [iaq_datalogger_1_4]
+serves: Apollogic_Zone2 [iaq_datalogger_1_4]
+serves: Apollogic_Zone1 [iaq_datalogger_1_2]
+serves: RMAPCtrl [rmapctrl]
+serves: AirPurifier_Ivan [airpurifier_2_0_ctrl]
+serves: AirPurifier_Bhavesh [airpurifier_2_0_ctrl]
+serves: AirPurifier_Luke [airpurifier_2_0_ctrl]
+serves: RTU 1_IAQVentCtrl [vav_iaqventctrl_rtu_nodye_ec]
+serves: PIU 5_IAQVentCtrl_Zone4 [vav_iaqventctrl_zone_flr1_ec]
+serves: VAV 5_IAQVentCtrl_Zone1 [vav_iaqventctrl_zone_flr1_ec]
+serves: PIU 1_IAQVentCtrl_Zone2 [vav_iaqventctrl_zone_ec]
+serves: VAV 6_IAQVentCtrl_Zone3 [vav_iaqventctrl_zone_flr1_ec]
+serves: PIU 9_IAQVentCtrl_Zone5 [vav_iaqventctrl_zone_flr1_ec]
+serves: Power Meters [powermeter]
+serves: testairflow_flr1 [test_airflowoverride]</title><rect x="1510.0" y="422" width="150" height="54" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2.5"/><text x="1518.0" y="439" font-size="11" font-weight="600">G5CE - Advantec</text><text x="1518.0" y="454" font-size="10" fill="#57606a">G5CE · #260000</text><text x="1518.0" y="468" font-size="10" fill="#57606a">41 equipment · 172.31.222.106</text><text x="1652.0" y="454" font-size="9" font-weight="700" text-anchor="end" fill="#1f6feb">ROUTER</text></g>
+<g><title>advantec ls-cpu (advantec_ls-cpu)
+model LS-CPU, BACnet instance 260001, MAC 172.31.222.123:47810
+IP 172.31.222.123 mask 255.255.255.192 gateway 172.31.222.65
+no equipment linked</title><rect x="1674.0" y="422" width="150" height="54" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2.5"/><text x="1682.0" y="439" font-size="11" font-weight="600">advantec ls-cpu</text><text x="1682.0" y="454" font-size="10" fill="#57606a">LS-CPU · #260001</text><text x="1682.0" y="468" font-size="10" fill="#57606a">0 equipment · 172.31.222.123</text><text x="1816.0" y="454" font-size="9" font-weight="700" text-anchor="end" fill="#1f6feb">ROUTER</text></g>
+<g><title>OF-G5CE (of-g5ce)
+model G5CE, BACnet instance 240000, MAC 172.31.222.104:47810
+IP 172.31.222.104 mask 255.255.255.192 gateway 172.31.222.65
+BBMD enabled
+serves: IAQ Datalogger [iaq_datalogger_1_1]
+serves: IAQDL_ChrisOffice [iaq_datalogger_1_2]
+serves: 1st Floor Lighitng [showcase_lighting]</title><rect x="1838.0" y="422" width="150" height="54" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2.5"/><text x="1846.0" y="439" font-size="11" font-weight="600">OF-G5CE</text><text x="1846.0" y="454" font-size="10" fill="#57606a">G5CE · #240000</text><text x="1846.0" y="468" font-size="10" fill="#57606a">3 equipment · 172.31.222.104</text><text x="1980.0" y="454" font-size="9" font-weight="700" text-anchor="end" fill="#1f6feb">ROUTER</text></g>
+<g><title>ME-LGR200 (Server Room) (BBMD) (router_02_me812u-lgr)
+model ME-LGR200, BACnet instance 301101, MAC 172.31.222.98:47810
+IP 172.31.222.98 mask 255.255.255.192 gateway 172.31.222.65 NAT 172.31.239.22:47810
+serves: ISS Server Room [fcu_dx]
+serves: Airport Lighting - Temporary [airport_temporary_3-28-18]
+serves: Weather (NWS) {not active} [weathernws]
+serves: Building Roll-Up [environmental_index_rollup]
+serves: RTU-1 Roll-Up [environmental_index_rollup]
+serves: RTU-2 Roll-Up [environmental_index_rollup]
+serves: Floor 1 - Alarm [floor1_alm]
+serves: Floor 1 - Misc Alarm [misc_alm]
+serves: Floor 2 - Alarm [floor2_alm]
+serves: Floor 1 - Occ [onguard_occ_msv]
+serves: Floor 2 - Occ [onguard_occ]
+serves: Showcase Lighting [showcase_lighting]
+serves: Weather (Accuweather) {ACTIVE} [weather_nws]
+serves: Indoor Environmental Quality Index [ieq_index_webctrl_english_v1a_ec]</title><rect x="2002.0" y="422" width="150" height="54" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2.5"/><text x="2010.0" y="439" font-size="11" font-weight="600">ME-LGR200 (Server Room)…</text><text x="2010.0" y="454" font-size="10" fill="#57606a">ME-LGR200 · #3011…</text><text x="2010.0" y="468" font-size="10" fill="#57606a">14 equipment · 172.31.222.98</text><text x="2144.0" y="454" font-size="9" font-weight="700" text-anchor="end" fill="#1f6feb">ROUTER</text></g>
+<rect x="20.0" y="564" width="514" height="134" rx="10" fill="#1a7f370d" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="38.0" y="584" font-size="13" font-weight="700" fill="#1a7f37">ARCNET · network 2400</text>
+<text x="38.0" y="600" font-size="10" fill="#57606a">arcnet 1st floor · bus or hub-star (not recorded)</text>
+<line x1="113.0" y1="614" x2="113.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="277.0" y1="614" x2="277.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="441.0" y1="614" x2="441.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="29.0" y1="614" x2="29.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="29.0" y1="614" x2="43.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="29.0" y1="614" x2="523.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="523.0" y1="607" x2="523.0" y2="621" stroke="#1a7f37" stroke-width="3"/>
+<g><title>CM07A New PIU (cm07a)
+model ZN341A, BACnet instance 240001, MAC 3
+serves: PIU 12 New Conference Room [piu_zs_chm_heating_ec_w_flo]</title><rect x="38.0" y="626" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="46.0" y="643" font-size="11" font-weight="600">CM07A New PIU</text><text x="46.0" y="658" font-size="10" fill="#57606a">ZN341A · #240001</text><text x="46.0" y="672" font-size="10" fill="#57606a">1 equipment · mac 3</text></g>
+<g><title>CM08A New VAV (cm08a)
+model ZN341A, BACnet instance 240002, MAC 2
+serves: VAV 10 Offices [vav_zs_chm_cooling_ec]</title><rect x="202.0" y="626" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="210.0" y="643" font-size="11" font-weight="600">CM08A New VAV</text><text x="210.0" y="658" font-size="10" fill="#57606a">ZN341A · #240002</text><text x="210.0" y="672" font-size="10" fill="#57606a">1 equipment · mac 2</text></g>
+<g><title>AAR 1st Floor (aar_1st_floor)
+model AAR, BACnet instance 240003, MAC 1
+no equipment linked</title><rect x="366.0" y="626" width="150" height="54" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2.5"/><text x="374.0" y="643" font-size="11" font-weight="600">AAR 1st Floor</text><text x="374.0" y="658" font-size="10" fill="#57606a">AAR · #240003</text><text x="374.0" y="672" font-size="10" fill="#57606a">0 equipment · mac 1</text><text x="508.0" y="658" font-size="9" font-weight="700" text-anchor="end" fill="#1a7f37">ROUTER</text></g>
+<path d="M1913.0 476 V508 H277.0 V564" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1436.0" y="564" width="1006" height="134" rx="10" fill="#1a7f370d" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="1454.0" y="584" font-size="13" font-weight="700" fill="#1a7f37">ARCNET · network 4401</text>
+<text x="1454.0" y="600" font-size="10" fill="#57606a">Media: 4401 Arcnet · bus or hub-star (not recorded)</text>
+<line x1="1529.0" y1="614" x2="1529.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="1693.0" y1="614" x2="1693.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="1857.0" y1="614" x2="1857.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2021.0" y1="614" x2="2021.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2185.0" y1="614" x2="2185.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2349.0" y1="614" x2="2349.0" y2="626" stroke="#1a7f37" stroke-width="2"/>
+<line x1="1445.0" y1="614" x2="1445.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="1445.0" y1="614" x2="1459.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="1445.0" y1="614" x2="2431.0" y2="614" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2431.0" y1="607" x2="2431.0" y2="621" stroke="#1a7f37" stroke-width="3"/>
+<g><title>Metering ME812u CM05 (metering_me812u_cm05_ec)
+model ME812u, BACnet instance 301005, MAC 5
+serves: UTC SC Domestic Water Flow Meter [water_flow_meter_8_10_17]
+serves: UTC SC Irrigation Water Flow Meter [water_flow_meter_8_10_17_two]
+serves: UTC SC Irrigation Valve Control [irrigation_valve_control_ec5]</title><rect x="1454.0" y="626" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="1462.0" y="643" font-size="11" font-weight="600">Metering ME812u CM05</text><text x="1462.0" y="658" font-size="10" fill="#57606a">ME812u · #301005</text><text x="1462.0" y="672" font-size="10" fill="#57606a">3 equipment · mac 5</text></g>
+<g><title>Veris 8053: M0100 CM10 (veris_8053_m0100)
+model M0100, BACnet instance 301010, MAC 10
+serves: Linear Trend [linear_trend_4]
+serves: Pulse Meter [electric_meter_rev1]</title><rect x="1618.0" y="626" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="1626.0" y="643" font-size="11" font-weight="600">Veris 8053: M0100 CM10</text><text x="1626.0" y="658" font-size="10" fill="#57606a">M0100 · #301010</text><text x="1626.0" y="672" font-size="10" fill="#57606a">2 equipment · mac 10</text></g>
+<g><title>WebCTRL Room  HPC CM99 (climatemaster_hpc)
+model -, BACnet instance 301099, MAC 99
+serves: HPC-CM [clm_water_air_gen3_gold_rev_001]</title><rect x="1782.0" y="626" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="1790.0" y="643" font-size="11" font-weight="600">WebCTRL Room  HPC CM99</text><text x="1790.0" y="658" font-size="10" fill="#57606a">device · #301099</text><text x="1790.0" y="672" font-size="10" fill="#57606a">1 equipment · mac 99</text></g>
+<g><title>Router: 02 AMR/UNI-32 (router_uni32)
+model UNI/32, BACnet instance 301002, MAC 2
+serves: PIU 2 (Lobby) [piu_00_worx_wip03]
+serves: PIU 3 (OEM) [piu_00_share_worx_wip]
+serves: PIU 4 (OEM) [piu_00_share_3_worx_wip]
+serves: PIU 5 (7-11) [piu_00_piu5_worx_wip]
+serves: PIU 6 (7-11) [piu_00_piu6_worx_wip]
+serves: PIU 7 (NSA Cubes) [piu_00_worx_wip03]
+serves: PIU 8 (NSA Cubes) [piu_00_worx_wip03]
+serves: PIU 9 (NSA Cubes) [piu_00_worx_wip03]
+serves: PIU 10 (NSA Offices) [piu_00_worx_wip03]
+serves: VAV 1 (ALCS/TPI) [vav_00_vav1_worx_wip]
+serves: VAV 2 (NSA Copier) [vav_00_worx_wip01]
+serves: VAV 4 (NSA Cubes) [vav_00_vav4_worx_wip]
+serves: VAV 5 (NSA) [vav_00_vav5_worx_wip]
+serves: VAV 6 (OEM) [vav_00_share_worx_wip]
+serves: VAV 8 (OEM Conf) [vav_00_worx_wip01]
+serves: VAV 9 (OEM Lab) [vav_00_worx_wip01]</title><rect x="1946.0" y="626" width="150" height="54" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2.5"/><text x="1954.0" y="643" font-size="11" font-weight="600">Router: 02 AMR/UNI-32</text><text x="1954.0" y="658" font-size="10" fill="#57606a">UNI/32 · #301002</text><text x="1954.0" y="672" font-size="10" fill="#57606a">16 equipment · mac 2</text><text x="2088.0" y="658" font-size="9" font-weight="700" text-anchor="end" fill="#1a7f37">ROUTER</text></g>
+<g><title>Router: 03 Carrier (carrier_interface_ahu_1)
+model WebPRTL, BACnet instance 301003, MAC 3
+serves: RTU-1 (ALC) BACnet Integration to UPC [rtu1_1025_50p_20220509_worx]
+serves: RTU-2 (ALC) BACnet Integration to UPC [rtu2_1025_50p_20220509_worx]
+serves: Triggered Reports Program [triggered_reports_w_schdule]
+serves: Outside Air Temperature [oa_conditions]</title><rect x="2110.0" y="626" width="150" height="54" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2.5"/><text x="2118.0" y="643" font-size="11" font-weight="600">Router: 03 Carrier</text><text x="2118.0" y="658" font-size="10" fill="#57606a">WebPRTL · #301003</text><text x="2118.0" y="672" font-size="10" fill="#57606a">4 equipment · mac 3</text><text x="2252.0" y="658" font-size="9" font-weight="700" text-anchor="end" fill="#1a7f37">ROUTER</text></g>
+<g><title>Router: 04 AAR (2nd Flr) (router_aar4_301004)
+model AAR, BACnet instance 301004, MAC 4
+no equipment linked</title><rect x="2274.0" y="626" width="150" height="54" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2.5"/><text x="2282.0" y="643" font-size="11" font-weight="600">Router: 04 AAR (2nd Flr)</text><text x="2282.0" y="658" font-size="10" fill="#57606a">AAR · #301004</text><text x="2282.0" y="672" font-size="10" fill="#57606a">0 equipment · mac 4</text><text x="2416.0" y="658" font-size="9" font-weight="700" text-anchor="end" fill="#1a7f37">ROUTER</text></g>
+<rect x="564.0" y="768" width="842" height="134" rx="10" fill="#bc4c000d" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="582.0" y="788" font-size="13" font-weight="700" fill="#bc4c00">MS/TP · network 102</text>
+<text x="582.0" y="804" font-size="10" fill="#57606a">MSTP-102 · RS-485 daisy-chain bus</text>
+<line x1="657.0" y1="818" x2="657.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="821.0" y1="818" x2="821.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="985.0" y1="818" x2="985.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="1149.0" y1="818" x2="1149.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="1313.0" y1="818" x2="1313.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="573.0" y1="818" x2="573.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="573.0" y1="818" x2="587.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="573.0" y1="818" x2="1395.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="1395.0" y1="811" x2="1395.0" y2="825" stroke="#bc4c00" stroke-width="3"/>
+<g><title>ZN341v+ Restrooms 20 (zn341v_restrooms)
+model ZN341V+, BACnet instance 10220, MAC 20
+serves: PIU 11 (Restrooms) [piu_zs_chm_heating_ec_worx03]</title><rect x="582.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="590.0" y="847" font-size="11" font-weight="600">ZN341v+ Restrooms 20</text><text x="590.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #10220</text><text x="590.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 20</text></g>
+<g><title>ZN341v+ Show Case (zn341v_show_case)
+model ZN341V+, BACnet instance 10221, MAC 21
+serves: VAV 3 (Show Case) [vav_zs_chm_showcase_wireless_ec_worx_ik]</title><rect x="746.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="754.0" y="847" font-size="11" font-weight="600">ZN341v+ Show Case</text><text x="754.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #10221</text><text x="754.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 21</text></g>
+<g><title>ZN341v+ Break Room (zn341v_break_room)
+model ZN341V+, BACnet instance 10222, MAC 22
+serves: PIU 8 (Break Room) [piu_zs_chm_eqtouch2_ec_worx]</title><rect x="910.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="918.0" y="847" font-size="11" font-weight="600">ZN341v+ Break Room</text><text x="918.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #10222</text><text x="918.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 22</text></g>
+<g><title>ZN341v+ Admin office 33 (zn341v_admin_office)
+model ZN341V+, BACnet instance 10233, MAC 33
+serves: PIU 1 (NSA Office) [vv-t_elec-ao_fn_zn1_adv_rev1_worx]</title><rect x="1074.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1082.0" y="847" font-size="11" font-weight="600">ZN341v+ Admin office 33</text><text x="1082.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #10233</text><text x="1082.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 33</text></g>
+<g><title>ZN341v+ Test Lab 50 (zn341v_lab_50)
+model ZN341V+, BACnet instance 10234, MAC 50
+serves: VAV 7 (NSA Cubes) [vav_00_zn_worx_wip01]</title><rect x="1238.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1246.0" y="847" font-size="11" font-weight="600">ZN341v+ Test Lab 50</text><text x="1246.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #10234</text><text x="1246.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 50</text></g>
+<path d="M2021.0 680 V712 H985.0 V768" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1436.0" y="768" width="842" height="134" rx="10" fill="#bc4c000d" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="1454.0" y="788" font-size="13" font-weight="700" fill="#bc4c00">MS/TP · network 3011</text>
+<text x="1454.0" y="804" font-size="10" fill="#57606a">CCN BACnet MSTP · RS-485 daisy-chain bus</text>
+<line x1="1529.0" y1="818" x2="1529.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="1693.0" y1="818" x2="1693.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="1857.0" y1="818" x2="1857.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="2021.0" y1="818" x2="2021.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="2185.0" y1="818" x2="2185.0" y2="830" stroke="#bc4c00" stroke-width="2"/>
+<line x1="1445.0" y1="818" x2="1445.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="1445.0" y1="818" x2="1459.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="1445.0" y1="818" x2="2267.0" y2="818" stroke="#bc4c00" stroke-width="3"/>
+<line x1="2267.0" y1="811" x2="2267.0" y2="825" stroke="#bc4c00" stroke-width="3"/>
+<g><title>CM06 SE6104sp (cm06_se6104sp_3011)
+model SE6104sp, BACnet instance 301106, MAC 6
+serves: RTU 1 (ALC) Temp Monitor IO [rtu_temp_monitor]</title><rect x="1454.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1462.0" y="847" font-size="11" font-weight="600">CM06 SE6104sp</text><text x="1462.0" y="862" font-size="10" fill="#57606a">SE6104sp · #301106</text><text x="1462.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 6</text></g>
+<g><title>CM07 SE6104sp (cm07_se6104sp_3011)
+model SE6104sp, BACnet instance 301107, MAC 7
+serves: RTU 2 (ALC) Temp Monitor IO [rtu_temp_monitor]</title><rect x="1618.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1626.0" y="847" font-size="11" font-weight="600">CM07 SE6104sp</text><text x="1626.0" y="862" font-size="10" fill="#57606a">SE6104sp · #301107</text><text x="1626.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 7</text></g>
+<g><title>Controller 0 (device1610100)
+model UPC Open, BACnet instance 1610100, MAC 0
+no equipment linked</title><rect x="1782.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1790.0" y="847" font-size="11" font-weight="600">Controller 0</text><text x="1790.0" y="862" font-size="10" fill="#57606a">UPC Open · #1610100</text><text x="1790.0" y="876" font-size="10" fill="#57606a">0 equipment · mac 0</text></g>
+<g><title>Controller 2 (device1610102)
+model UPC Open, BACnet instance 1610102, MAC 2
+no equipment linked</title><rect x="1946.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="1954.0" y="847" font-size="11" font-weight="600">Controller 2</text><text x="1954.0" y="862" font-size="10" fill="#57606a">UPC Open · #1610102</text><text x="1954.0" y="876" font-size="10" fill="#57606a">0 equipment · mac 2</text></g>
+<g><title>Controller 4 (device1610104)
+model UPC Open, BACnet instance 1610104, MAC 4
+no equipment linked</title><rect x="2110.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#bc4c00" stroke-width="1.2"/><text x="2118.0" y="847" font-size="11" font-weight="600">Controller 4</text><text x="2118.0" y="862" font-size="10" fill="#57606a">UPC Open · #1610104</text><text x="2118.0" y="876" font-size="10" fill="#57606a">0 equipment · mac 4</text></g>
+<path d="M2185.0 680 V720 H1857.0 V768" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="2308.0" y="768" width="1006" height="416" rx="10" fill="#1a7f370d" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="2326.0" y="788" font-size="13" font-weight="700" fill="#1a7f37">ARCNET · network 30100</text>
+<text x="2326.0" y="804" font-size="10" fill="#57606a">Router 4 Arcnet_100 · bus or hub-star (not recorded)</text>
+<line x1="2401.0" y1="818" x2="2401.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2565.0" y1="818" x2="2565.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2729.0" y1="818" x2="2729.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2893.0" y1="818" x2="2893.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3057.0" y1="818" x2="3057.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3221.0" y1="818" x2="3221.0" y2="830" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2401.0" y1="912" x2="2401.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2565.0" y1="912" x2="2565.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2729.0" y1="912" x2="2729.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2893.0" y1="912" x2="2893.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3057.0" y1="912" x2="3057.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3221.0" y1="912" x2="3221.0" y2="924" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2401.0" y1="1006" x2="2401.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2565.0" y1="1006" x2="2565.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2729.0" y1="1006" x2="2729.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2893.0" y1="1006" x2="2893.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3057.0" y1="1006" x2="3057.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3221.0" y1="1006" x2="3221.0" y2="1018" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2401.0" y1="1100" x2="2401.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2565.0" y1="1100" x2="2565.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2729.0" y1="1100" x2="2729.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2893.0" y1="1100" x2="2893.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3057.0" y1="1100" x2="3057.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="3221.0" y1="1100" x2="3221.0" y2="1112" stroke="#1a7f37" stroke-width="2"/>
+<line x1="2317.0" y1="818" x2="2317.0" y2="1100" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2317.0" y1="818" x2="2331.0" y2="818" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2317.0" y1="818" x2="3303.0" y2="818" stroke="#1a7f37" stroke-width="3"/>
+<line x1="3303.0" y1="811" x2="3303.0" y2="825" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2317.0" y1="912" x2="3303.0" y2="912" stroke="#1a7f37" stroke-width="3"/>
+<line x1="3303.0" y1="905" x2="3303.0" y2="919" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2317.0" y1="1006" x2="3303.0" y2="1006" stroke="#1a7f37" stroke-width="3"/>
+<line x1="3303.0" y1="999" x2="3303.0" y2="1013" stroke="#1a7f37" stroke-width="3"/>
+<line x1="2317.0" y1="1100" x2="3303.0" y2="1100" stroke="#1a7f37" stroke-width="3"/>
+<line x1="3303.0" y1="1093" x2="3303.0" y2="1107" stroke="#1a7f37" stroke-width="3"/>
+<g><title>CM01 ZN341_4 (cm01_zn341_4)
+model ZN341V+, BACnet instance 3010001, MAC 1
+serves: PIU 2-18 Break/Recording [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2326.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2334.0" y="847" font-size="11" font-weight="600">CM01 ZN341_4</text><text x="2334.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #3010001</text><text x="2334.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 1</text></g>
+<g><title>CM02 ZN341_4 (cm02_zn341_4)
+model ZN341V+, BACnet instance 3010002, MAC 2
+serves: PIU 2-16 Open Office 203A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2490.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2498.0" y="847" font-size="11" font-weight="600">CM02 ZN341_4</text><text x="2498.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #3010002</text><text x="2498.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 2</text></g>
+<g><title>CM03 ZN341_4 (cm03_zn341_4)
+model ZN341V+, BACnet instance 3010003, MAC 3
+serves: PIU 2-4 Open Office 203 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2654.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2662.0" y="847" font-size="11" font-weight="600">CM03 ZN341_4</text><text x="2662.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #3010003</text><text x="2662.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 3</text></g>
+<g><title>CM04 ZN341_4 (cm04_zn341_4)
+model ZN341A, BACnet instance 3010004, MAC 4
+serves: PIU 2-13 Open Office 202 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2818.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2826.0" y="847" font-size="11" font-weight="600">CM04 ZN341_4</text><text x="2826.0" y="862" font-size="10" fill="#57606a">ZN341A · #3010004</text><text x="2826.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 4</text></g>
+<g><title>CM05 ZN341_4 (cm05_zn341_4)
+model ZN341V+, BACnet instance 3010005, MAC 5
+serves: PIU 2-15 Open Office 202 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2982.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2990.0" y="847" font-size="11" font-weight="600">CM05 ZN341_4</text><text x="2990.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #3010005</text><text x="2990.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 5</text></g>
+<g><title>CM06 ZN341_4 (cm06_zn341_4)
+model ZN341V+, BACnet instance 3010006, MAC 6
+serves: PIU 2-20 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="3146.0" y="830" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="3154.0" y="847" font-size="11" font-weight="600">CM06 ZN341_4</text><text x="3154.0" y="862" font-size="10" fill="#57606a">ZN341V+ · #3010006</text><text x="3154.0" y="876" font-size="10" fill="#57606a">1 equipment · mac 6</text></g>
+<g><title>CM07 ZN341_4 (cm07_zn341_4)
+model ZN341V+, BACnet instance 3010007, MAC 7
+serves: PIU 2-14 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2326.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2334.0" y="941" font-size="11" font-weight="600">CM07 ZN341_4</text><text x="2334.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010007</text><text x="2334.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 7</text></g>
+<g><title>CM08 ZN341_4 (cm08_zn341_4)
+model ZN341V+, BACnet instance 3010008, MAC 8
+serves: PIU 2-3 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2490.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2498.0" y="941" font-size="11" font-weight="600">CM08 ZN341_4</text><text x="2498.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010008</text><text x="2498.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 8</text></g>
+<g><title>CM09 ZN341_4 (cm09_zn341_4)
+model ZN341V+, BACnet instance 3010009, MAC 9
+serves: PIU 2-23 Training UTC Univ [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2654.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2662.0" y="941" font-size="11" font-weight="600">CM09 ZN341_4</text><text x="2662.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010009</text><text x="2662.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 9</text></g>
+<g><title>CM10 ZN341_4 (cm10_zn341_4)
+model ZN341V+, BACnet instance 3010010, MAC 10
+serves: PIU 2-24 Training UTC Univ [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2818.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2826.0" y="941" font-size="11" font-weight="600">CM10 ZN341_4</text><text x="2826.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010010</text><text x="2826.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 10</text></g>
+<g><title>CM11 ZN341_4 (cm11_zn341_4)
+model ZN341V+, BACnet instance 3010011, MAC 11
+serves: PIU 2-5 Toilets/Reception [piu_zs_et_chm_htg_ec_base_worx01_abd]</title><rect x="2982.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2990.0" y="941" font-size="11" font-weight="600">CM11 ZN341_4</text><text x="2990.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010011</text><text x="2990.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 11</text></g>
+<g><title>CM12 ZN341_4 (cm12_zn341_4)
+model ZN341V+, BACnet instance 3010012, MAC 12
+serves: PIU 2-8 Open Office 232 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="3146.0" y="924" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="3154.0" y="941" font-size="11" font-weight="600">CM12 ZN341_4</text><text x="3154.0" y="956" font-size="10" fill="#57606a">ZN341V+ · #3010012</text><text x="3154.0" y="970" font-size="10" fill="#57606a">1 equipment · mac 12</text></g>
+<g><title>CM13 ZN341_4 (cm13_zn341_4)
+model ZN341V+, BACnet instance 3010013, MAC 13
+serves: PIU 2-11 Offices 233-235 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2326.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2334.0" y="1035" font-size="11" font-weight="600">CM13 ZN341_4</text><text x="2334.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010013</text><text x="2334.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 13</text></g>
+<g><title>CM14 ZN341_4 (cm14_zn341_4)
+model ZN341V+, BACnet instance 3010014, MAC 14
+serves: PIU 2-10 Office 231 [piu_zs_et_chm_htg_ec_mead_worx01]</title><rect x="2490.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2498.0" y="1035" font-size="11" font-weight="600">CM14 ZN341_4</text><text x="2498.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010014</text><text x="2498.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 14</text></g>
+<g><title>CM15 ZN341_4 (cm15_zn341_4)
+model ZN341V+, BACnet instance 3010015, MAC 15
+serves: PIU 2-9 Conference 230 Airport [piu_zs_et_chm_htg_ec_lites_worx01]</title><rect x="2654.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2662.0" y="1035" font-size="11" font-weight="600">CM15 ZN341_4</text><text x="2662.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010015</text><text x="2662.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 15</text></g>
+<g><title>CM16 ZN341_4 (cm16_zn341_4)
+model ZN341V+, BACnet instance 3010016, MAC 16
+serves: PIU 2-19 Breakout [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2818.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2826.0" y="1035" font-size="11" font-weight="600">CM16 ZN341_4</text><text x="2826.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010016</text><text x="2826.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 16</text></g>
+<g><title>CM17 ZN341_4 (cm17_zn341_4)
+model ZN341V+, BACnet instance 3010017, MAC 17
+serves: PIU 2-2 Open Seating 228 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2982.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2990.0" y="1035" font-size="11" font-weight="600">CM17 ZN341_4</text><text x="2990.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010017</text><text x="2990.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 17</text></g>
+<g><title>CM18 ZN341_4 (cm18_zn341_4)
+model ZN341V+, BACnet instance 3010018, MAC 18
+serves: PIU 2-7 Conference 226 Hotel Cal [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="3146.0" y="1018" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="3154.0" y="1035" font-size="11" font-weight="600">CM18 ZN341_4</text><text x="3154.0" y="1050" font-size="10" fill="#57606a">ZN341V+ · #3010018</text><text x="3154.0" y="1064" font-size="10" fill="#57606a">1 equipment · mac 18</text></g>
+<g><title>CM19 ZN341_4 (cm19_zn341_4)
+model ZN341V+, BACnet instance 3010019, MAC 19
+serves: PIU 2-6 Office 225 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2326.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2334.0" y="1129" font-size="11" font-weight="600">CM19 ZN341_4</text><text x="2334.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010019</text><text x="2334.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 19</text></g>
+<g><title>CM20 ZN341_4 (cm20_zn341_4)
+model ZN341V+, BACnet instance 3010020, MAC 20
+serves: PIU 2-12 Open Office 221 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2490.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2498.0" y="1129" font-size="11" font-weight="600">CM20 ZN341_4</text><text x="2498.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010020</text><text x="2498.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 20</text></g>
+<g><title>CM21 ZN341_4 (cm21_zn341_4)
+model ZN341V+, BACnet instance 3010021, MAC 21
+serves: PIU 2-17 Office [piu_zs_et_chm_htg_ec_base_worx01_ik]</title><rect x="2654.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2662.0" y="1129" font-size="11" font-weight="600">CM21 ZN341_4</text><text x="2662.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010021</text><text x="2662.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 21</text></g>
+<g><title>CM22 ZN341_4 (cm22_zn341_4)
+model ZN341V+, BACnet instance 3010022, MAC 22
+serves: PIU 2-22 Office 213 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2818.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2826.0" y="1129" font-size="11" font-weight="600">CM22 ZN341_4</text><text x="2826.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010022</text><text x="2826.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 22</text></g>
+<g><title>CM23 ZN341_4 (cm23_zn341_4)
+model ZN341V+, BACnet instance 3010023, MAC 23
+serves: PIU 2-21 Conference 218 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="2982.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="2990.0" y="1129" font-size="11" font-weight="600">CM23 ZN341_4</text><text x="2990.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010023</text><text x="2990.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 23</text></g>
+<g><title>CM24 ZN341_4 (cm24_zn341_4)
+model ZN341V+, BACnet instance 3010024, MAC 24
+serves: PIU 2-1 Huddle [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="3146.0" y="1112" width="150" height="54" rx="6" fill="#ffffff" stroke="#1a7f37" stroke-width="1.2"/><text x="3154.0" y="1129" font-size="11" font-weight="600">CM24 ZN341_4</text><text x="3154.0" y="1144" font-size="10" fill="#57606a">ZN341V+ · #3010024</text><text x="3154.0" y="1158" font-size="10" fill="#57606a">1 equipment · mac 24</text></g>
+<path d="M2349.0 680 V728 H2811.0 V768" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M2077.0 476 V516 H1939.0 V564" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M1667.0 204 V236 H1667.0 V292" fill="none" stroke="#24292f" stroke-width="2.5" marker-end="url(#arrow)"/></svg></div>
+<h3>Controller map: equipment served by each controller</h3>
+<p class="note">One lane per network, one row per controller, one chip per equipment with its assigned program underneath. Same data as the equipment, controller and network triples in the Brick TTL.</p>
+<div class="box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1430 3516" width="1430" height="3516"><rect x="10" y="10" width="1410" height="26" rx="5" fill="#8250df"/><text x="20" y="27" font-size="12" font-weight="700" fill="#fff">BACnet/SC · network 2401 · BACnet/SC · star</text>
+<rect x="10" y="42" width="1410" height="48" rx="5" fill="#8250df0d" stroke="#8250df55"/>
+<g><title>G5RE BACnet/SC (g5re_bacnet_sc)</title><rect x="18" y="48" width="220" height="46" rx="6" fill="#8250df22" stroke="#8250df" stroke-width="2"/><text x="26" y="63" font-size="11" font-weight="600">G5RE BACnet/SC</text><text x="26" y="77" font-size="10" fill="#57606a">G5RE · #240004 · ROUTER → net 888</text></g>
+<text x="270" y="75.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="104" width="1410" height="26" rx="5" fill="#1f6feb"/><text x="20" y="121" font-size="12" font-weight="700" fill="#fff">BACnet/IP · network 888 · Bacnet IP 888 · star</text>
+<rect x="10" y="136" width="1410" height="48" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>BAC0 (iaq_datalogger2)</title><rect x="18" y="142" width="220" height="46" rx="6" fill="#fff" stroke="#1f6feb" stroke-width="1"/><text x="26" y="157" font-size="11" font-weight="600">BAC0</text><text x="26" y="171" font-size="10" fill="#57606a">device · #101</text></g>
+<text x="270" y="169.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="190" width="1410" height="48" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>MES eBox - Showcase (mes_ebox_-_showcase)</title><rect x="18" y="196" width="220" height="46" rx="6" fill="#fff" stroke="#1f6feb" stroke-width="1"/><text x="26" y="211" font-size="11" font-weight="600">MES eBox - Showcase</text><text x="26" y="225" font-size="10" fill="#57606a">device · #71101</text></g>
+<text x="270" y="223.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="244" width="1410" height="286" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>G5CE - Advantec (g5ce_-_advantec)</title><rect x="18" y="250" width="220" height="46" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2"/><text x="26" y="265" font-size="11" font-weight="600">G5CE - Advantec</text><text x="26" y="279" font-size="10" fill="#57606a">G5CE · #260000 · ROUTER</text></g>
+<line x1="238" y1="273.0" x2="266" y2="273.0" stroke="#1f6feb" stroke-width="2"/>
+<g><title>AirPurifier_Bhavesh [airpurifier_2_0_ctrl]</title><rect x="270" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="264" font-size="10.5">AirPurifier_Bhavesh</text><text x="277" y="277" font-size="9" fill="#57606a">airpurifier_2_0_ctrl</text></g>
+<g><title>AirPurifier_Ivan [airpurifier_2_0_ctrl]</title><rect x="460" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="264" font-size="10.5">AirPurifier_Ivan</text><text x="467" y="277" font-size="9" fill="#57606a">airpurifier_2_0_ctrl</text></g>
+<g><title>AirPurifier_Luke [airpurifier_2_0_ctrl]</title><rect x="650" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="264" font-size="10.5">AirPurifier_Luke</text><text x="657" y="277" font-size="9" fill="#57606a">airpurifier_2_0_ctrl</text></g>
+<g><title>Apollogic_Zone1 [iaq_datalogger_1_2]</title><rect x="840" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="264" font-size="10.5">Apollogic_Zone1</text><text x="847" y="277" font-size="9" fill="#57606a">iaq_datalogger_1_2</text></g>
+<g><title>Apollogic_Zone2 [iaq_datalogger_1_4]</title><rect x="1030" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="264" font-size="10.5">Apollogic_Zone2</text><text x="1037" y="277" font-size="9" fill="#57606a">iaq_datalogger_1_4</text></g>
+<g><title>Apollogic_Zone3 [iaq_datalogger_1_4]</title><rect x="1220" y="250" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="264" font-size="10.5">Apollogic_Zone3</text><text x="1227" y="277" font-size="9" fill="#57606a">iaq_datalogger_1_4</text></g>
+<g><title>Apollogic_Zone4 [iaq_datalogger_1_2]</title><rect x="270" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="304" font-size="10.5">Apollogic_Zone4</text><text x="277" y="317" font-size="9" fill="#57606a">iaq_datalogger_1_2</text></g>
+<g><title>Kaiterra_Zone1 [iaq_kaiterra_1_0]</title><rect x="460" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="304" font-size="10.5">Kaiterra_Zone1</text><text x="467" y="317" font-size="9" fill="#57606a">iaq_kaiterra_1_0</text></g>
+<g><title>Kaiterra_Zone2 [iaq_kaiterra_1_0]</title><rect x="650" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="304" font-size="10.5">Kaiterra_Zone2</text><text x="657" y="317" font-size="9" fill="#57606a">iaq_kaiterra_1_0</text></g>
+<g><title>Kaiterra_Zone3 [iaq_kaiterra_1_0]</title><rect x="840" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="304" font-size="10.5">Kaiterra_Zone3</text><text x="847" y="317" font-size="9" fill="#57606a">iaq_kaiterra_1_0</text></g>
+<g><title>Kaiterra_Zone4 [iaq_kaiterra_1_0]</title><rect x="1030" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="304" font-size="10.5">Kaiterra_Zone4</text><text x="1037" y="317" font-size="9" fill="#57606a">iaq_kaiterra_1_0</text></g>
+<g><title>Kaiterra_Zone5 [iaq_kaiterra_1_0]</title><rect x="1220" y="290" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="304" font-size="10.5">Kaiterra_Zone5</text><text x="1227" y="317" font-size="9" fill="#57606a">iaq_kaiterra_1_0</text></g>
+<g><title>PIU 1_IAQVentCtrl_Zone2 [vav_iaqventctrl_zone_ec]</title><rect x="270" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="344" font-size="10.5">PIU 1_IAQVentCtrl_Zone2</text><text x="277" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-11_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="460" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="344" font-size="10.5">PIU 2-11_IAQVentCtrl</text><text x="467" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-12_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="650" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="344" font-size="10.5">PIU 2-12_IAQVentCtrl</text><text x="657" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-13_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="840" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="344" font-size="10.5">PIU 2-13_IAQVentCtrl</text><text x="847" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-14_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="1030" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="344" font-size="10.5">PIU 2-14_IAQVentCtrl</text><text x="1037" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-15_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="1220" y="330" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="344" font-size="10.5">PIU 2-15_IAQVentCtrl</text><text x="1227" y="357" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-16_IAQVentCtrl_Zone2 [vav_iaqventctrl_zone_ec]</title><rect x="270" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="384" font-size="10.5">PIU 2-16_IAQVentCtrl_Zone2</text><text x="277" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-17_IAQVentCtrl_Zone4 [vav_iaqventctrl_zone_ec]</title><rect x="460" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="384" font-size="10.5">PIU 2-17_IAQVentCtrl_Zone4</text><text x="467" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-18_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="650" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="384" font-size="10.5">PIU 2-18_IAQVentCtrl</text><text x="657" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-19_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="840" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="384" font-size="10.5">PIU 2-19_IAQVentCtrl</text><text x="847" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-1_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="1030" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="384" font-size="10.5">PIU 2-1_IAQVentCtrl</text><text x="1037" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-20_IAQVentCtrl_Zone1 [vav_iaqventctrl_rmap_zone_ec_zone1test]</title><rect x="1220" y="370" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="384" font-size="10.5">PIU 2-20_IAQVentCtrl_Zone1</text><text x="1227" y="397" font-size="9" fill="#57606a">vav_iaqventctrl_rmap_zone_ec_zone…</text></g>
+<g><title>PIU 2-22_IAQVentCtrl_Zone5 [vav_iaqventctrl_rmap_zone_ec]</title><rect x="270" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="424" font-size="10.5">PIU 2-22_IAQVentCtrl_Zone5</text><text x="277" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_rmap_zone_ec</text></g>
+<g><title>PIU 2-2_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="460" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="424" font-size="10.5">PIU 2-2_IAQVentCtrl</text><text x="467" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-3_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="650" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="424" font-size="10.5">PIU 2-3_IAQVentCtrl</text><text x="657" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-4_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="840" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="424" font-size="10.5">PIU 2-4_IAQVentCtrl</text><text x="847" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-5_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="1030" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="424" font-size="10.5">PIU 2-5_IAQVentCtrl</text><text x="1037" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-6_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="1220" y="410" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="424" font-size="10.5">PIU 2-6_IAQVentCtrl</text><text x="1227" y="437" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-7_IAQVentCtrl_Zone3 [vav_iaqventctrl_zone_ec]</title><rect x="270" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="464" font-size="10.5">PIU 2-7_IAQVentCtrl_Zone3</text><text x="277" y="477" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 2-8_IAQVentCtrl [vav_iaqventctrl_zone_ec]</title><rect x="460" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="464" font-size="10.5">PIU 2-8_IAQVentCtrl</text><text x="467" y="477" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec</text></g>
+<g><title>PIU 5_IAQVentCtrl_Zone4 [vav_iaqventctrl_zone_flr1_ec]</title><rect x="650" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="464" font-size="10.5">PIU 5_IAQVentCtrl_Zone4</text><text x="657" y="477" font-size="9" fill="#57606a">vav_iaqventctrl_zone_flr1_ec</text></g>
+<g><title>PIU 9_IAQVentCtrl_Zone5 [vav_iaqventctrl_zone_flr1_ec]</title><rect x="840" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="464" font-size="10.5">PIU 9_IAQVentCtrl_Zone5</text><text x="847" y="477" font-size="9" fill="#57606a">vav_iaqventctrl_zone_flr1_ec</text></g>
+<g><title>Power Meters [powermeter]</title><rect x="1030" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="464" font-size="10.5">Power Meters</text><text x="1037" y="477" font-size="9" fill="#57606a">powermeter</text></g>
+<g><title>RMAPCtrl [rmapctrl]</title><rect x="1220" y="450" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="464" font-size="10.5">RMAPCtrl</text><text x="1227" y="477" font-size="9" fill="#57606a">rmapctrl</text></g>
+<g><title>RTU 1_IAQVentCtrl [vav_iaqventctrl_rtu_nodye_ec]</title><rect x="270" y="490" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="504" font-size="10.5">RTU 1_IAQVentCtrl</text><text x="277" y="517" font-size="9" fill="#57606a">vav_iaqventctrl_rtu_nodye_ec</text></g>
+<g><title>RTU 2_IAQVentCtrl [vav_iaqventctrl_rtu_nodye_ec]</title><rect x="460" y="490" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="504" font-size="10.5">RTU 2_IAQVentCtrl</text><text x="467" y="517" font-size="9" fill="#57606a">vav_iaqventctrl_rtu_nodye_ec</text></g>
+<g><title>VAV 5_IAQVentCtrl_Zone1 [vav_iaqventctrl_zone_flr1_ec]</title><rect x="650" y="490" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="504" font-size="10.5">VAV 5_IAQVentCtrl_Zone1</text><text x="657" y="517" font-size="9" fill="#57606a">vav_iaqventctrl_zone_flr1_ec</text></g>
+<g><title>VAV 6_IAQVentCtrl_Zone3 [vav_iaqventctrl_zone_flr1_ec]</title><rect x="840" y="490" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="504" font-size="10.5">VAV 6_IAQVentCtrl_Zone3</text><text x="847" y="517" font-size="9" fill="#57606a">vav_iaqventctrl_zone_flr1_ec</text></g>
+<g><title>testairflow_flr1 [test_airflowoverride]</title><rect x="1030" y="490" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="504" font-size="10.5">testairflow_flr1</text><text x="1037" y="517" font-size="9" fill="#57606a">test_airflowoverride</text></g>
+<rect x="10" y="536" width="1410" height="48" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>advantec ls-cpu (advantec_ls-cpu)</title><rect x="18" y="542" width="220" height="46" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2"/><text x="26" y="557" font-size="11" font-weight="600">advantec ls-cpu</text><text x="26" y="571" font-size="10" fill="#57606a">LS-CPU · #260001 · ROUTER</text></g>
+<text x="270" y="569.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="590" width="1410" height="48" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>OF-G5CE (of-g5ce)</title><rect x="18" y="596" width="220" height="46" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2"/><text x="26" y="611" font-size="11" font-weight="600">OF-G5CE</text><text x="26" y="625" font-size="10" fill="#57606a">G5CE · #240000 · ROUTER → net 2400</text></g>
+<line x1="238" y1="619.0" x2="266" y2="619.0" stroke="#1f6feb" stroke-width="2"/>
+<g><title>1st Floor Lighitng [showcase_lighting]</title><rect x="270" y="596" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="610" font-size="10.5">1st Floor Lighitng</text><text x="277" y="623" font-size="9" fill="#57606a">showcase_lighting</text></g>
+<g><title>IAQ Datalogger [iaq_datalogger_1_1]</title><rect x="460" y="596" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="610" font-size="10.5">IAQ Datalogger</text><text x="467" y="623" font-size="9" fill="#57606a">iaq_datalogger_1_1</text></g>
+<g><title>IAQDL_ChrisOffice [iaq_datalogger_1_2]</title><rect x="650" y="596" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="610" font-size="10.5">IAQDL_ChrisOffice</text><text x="657" y="623" font-size="9" fill="#57606a">iaq_datalogger_1_2</text></g>
+<rect x="10" y="644" width="1410" height="126" rx="5" fill="#1f6feb0d" stroke="#1f6feb55"/>
+<g><title>ME-LGR200 (Server Room) (BBMD) (router_02_me812u-lgr)</title><rect x="18" y="650" width="220" height="46" rx="6" fill="#1f6feb22" stroke="#1f6feb" stroke-width="2"/><text x="26" y="665" font-size="11" font-weight="600">ME-LGR200 (Server Room) (BB…</text><text x="26" y="679" font-size="10" fill="#57606a">ME-LGR200 · #301101 · ROUTER → net 4401</text></g>
+<line x1="238" y1="673.0" x2="266" y2="673.0" stroke="#1f6feb" stroke-width="2"/>
+<g><title>Airport Lighting - Temporary [airport_temporary_3-28-18]</title><rect x="270" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="664" font-size="10.5">Airport Lighting - Temporary</text><text x="277" y="677" font-size="9" fill="#57606a">airport_temporary_3-28-18</text></g>
+<g><title>Building Roll-Up [environmental_index_rollup]</title><rect x="460" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="664" font-size="10.5">Building Roll-Up</text><text x="467" y="677" font-size="9" fill="#57606a">environmental_index_rollup</text></g>
+<g><title>Floor 1 - Alarm [floor1_alm]</title><rect x="650" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="664" font-size="10.5">Floor 1 - Alarm</text><text x="657" y="677" font-size="9" fill="#57606a">floor1_alm</text></g>
+<g><title>Floor 1 - Misc Alarm [misc_alm]</title><rect x="840" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="664" font-size="10.5">Floor 1 - Misc Alarm</text><text x="847" y="677" font-size="9" fill="#57606a">misc_alm</text></g>
+<g><title>Floor 1 - Occ [onguard_occ_msv]</title><rect x="1030" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="664" font-size="10.5">Floor 1 - Occ</text><text x="1037" y="677" font-size="9" fill="#57606a">onguard_occ_msv</text></g>
+<g><title>Floor 2 - Alarm [floor2_alm]</title><rect x="1220" y="650" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="664" font-size="10.5">Floor 2 - Alarm</text><text x="1227" y="677" font-size="9" fill="#57606a">floor2_alm</text></g>
+<g><title>Floor 2 - Occ [onguard_occ]</title><rect x="270" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="704" font-size="10.5">Floor 2 - Occ</text><text x="277" y="717" font-size="9" fill="#57606a">onguard_occ</text></g>
+<g><title>ISS Server Room [fcu_dx]</title><rect x="460" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="704" font-size="10.5">ISS Server Room</text><text x="467" y="717" font-size="9" fill="#57606a">fcu_dx</text></g>
+<g><title>Indoor Environmental Quality Index [ieq_index_webctrl_english_v1a_ec]</title><rect x="650" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="657" y="704" font-size="10.5">Indoor Environmental Qualit…</text><text x="657" y="717" font-size="9" fill="#57606a">ieq_index_webctrl_english_v1a_ec</text></g>
+<g><title>RTU-1 Roll-Up [environmental_index_rollup]</title><rect x="840" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="847" y="704" font-size="10.5">RTU-1 Roll-Up</text><text x="847" y="717" font-size="9" fill="#57606a">environmental_index_rollup</text></g>
+<g><title>RTU-2 Roll-Up [environmental_index_rollup]</title><rect x="1030" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1037" y="704" font-size="10.5">RTU-2 Roll-Up</text><text x="1037" y="717" font-size="9" fill="#57606a">environmental_index_rollup</text></g>
+<g><title>Showcase Lighting [showcase_lighting]</title><rect x="1220" y="690" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="1227" y="704" font-size="10.5">Showcase Lighting</text><text x="1227" y="717" font-size="9" fill="#57606a">showcase_lighting</text></g>
+<g><title>Weather (Accuweather) {ACTIVE} [weather_nws]</title><rect x="270" y="730" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="277" y="744" font-size="10.5">Weather (Accuweather) {ACTI…</text><text x="277" y="757" font-size="9" fill="#57606a">weather_nws</text></g>
+<g><title>Weather (NWS) {not active} [weathernws]</title><rect x="460" y="730" width="184" height="34" rx="4" fill="#fff" stroke="#1f6feb"/><text x="467" y="744" font-size="10.5">Weather (NWS) {not active}</text><text x="467" y="757" font-size="9" fill="#57606a">weathernws</text></g>
+<rect x="10" y="784" width="1410" height="26" rx="5" fill="#1a7f37"/><text x="20" y="801" font-size="12" font-weight="700" fill="#fff">ARCNET · network 2400 · arcnet 1st floor · bus</text>
+<rect x="10" y="816" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM07A New PIU (cm07a)</title><rect x="18" y="822" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="837" font-size="11" font-weight="600">CM07A New PIU</text><text x="26" y="851" font-size="10" fill="#57606a">ZN341A · #240001</text></g>
+<line x1="238" y1="845.0" x2="266" y2="845.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 12 New Conference Room [piu_zs_chm_heating_ec_w_flo]</title><rect x="270" y="822" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="836" font-size="10.5">PIU 12 New Conference Room</text><text x="277" y="849" font-size="9" fill="#57606a">piu_zs_chm_heating_ec_w_flo</text></g>
+<rect x="10" y="870" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM08A New VAV (cm08a)</title><rect x="18" y="876" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="891" font-size="11" font-weight="600">CM08A New VAV</text><text x="26" y="905" font-size="10" fill="#57606a">ZN341A · #240002</text></g>
+<line x1="238" y1="899.0" x2="266" y2="899.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>VAV 10 Offices [vav_zs_chm_cooling_ec]</title><rect x="270" y="876" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="890" font-size="10.5">VAV 10 Offices</text><text x="277" y="903" font-size="9" fill="#57606a">vav_zs_chm_cooling_ec</text></g>
+<rect x="10" y="924" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>AAR 1st Floor (aar_1st_floor)</title><rect x="18" y="930" width="220" height="46" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2"/><text x="26" y="945" font-size="11" font-weight="600">AAR 1st Floor</text><text x="26" y="959" font-size="10" fill="#57606a">AAR · #240003 · ROUTER</text></g>
+<text x="270" y="957.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="986" width="1410" height="26" rx="5" fill="#1a7f37"/><text x="20" y="1003" font-size="12" font-weight="700" fill="#fff">ARCNET · network 4401 · Media: 4401 Arcnet · bus</text>
+<rect x="10" y="1018" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>Metering ME812u CM05 (metering_me812u_cm05_ec)</title><rect x="18" y="1024" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="1039" font-size="11" font-weight="600">Metering ME812u CM05</text><text x="26" y="1053" font-size="10" fill="#57606a">ME812u · #301005</text></g>
+<line x1="238" y1="1047.0" x2="266" y2="1047.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>UTC SC Domestic Water Flow Meter [water_flow_meter_8_10_17]</title><rect x="270" y="1024" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1038" font-size="10.5">UTC SC Domestic Water Flow …</text><text x="277" y="1051" font-size="9" fill="#57606a">water_flow_meter_8_10_17</text></g>
+<g><title>UTC SC Irrigation Valve Control [irrigation_valve_control_ec5]</title><rect x="460" y="1024" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1038" font-size="10.5">UTC SC Irrigation Valve Con…</text><text x="467" y="1051" font-size="9" fill="#57606a">irrigation_valve_control_ec5</text></g>
+<g><title>UTC SC Irrigation Water Flow Meter [water_flow_meter_8_10_17_two]</title><rect x="650" y="1024" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="657" y="1038" font-size="10.5">UTC SC Irrigation Water Flo…</text><text x="657" y="1051" font-size="9" fill="#57606a">water_flow_meter_8_10_17_two</text></g>
+<rect x="10" y="1072" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>Veris 8053: M0100 CM10 (veris_8053_m0100)</title><rect x="18" y="1078" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="1093" font-size="11" font-weight="600">Veris 8053: M0100 CM10</text><text x="26" y="1107" font-size="10" fill="#57606a">M0100 · #301010</text></g>
+<line x1="238" y1="1101.0" x2="266" y2="1101.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>Linear Trend [linear_trend_4]</title><rect x="270" y="1078" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1092" font-size="10.5">Linear Trend</text><text x="277" y="1105" font-size="9" fill="#57606a">linear_trend_4</text></g>
+<g><title>Pulse Meter [electric_meter_rev1]</title><rect x="460" y="1078" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1092" font-size="10.5">Pulse Meter</text><text x="467" y="1105" font-size="9" fill="#57606a">electric_meter_rev1</text></g>
+<rect x="10" y="1126" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>WebCTRL Room  HPC CM99 (climatemaster_hpc)</title><rect x="18" y="1132" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="1147" font-size="11" font-weight="600">WebCTRL Room  HPC CM99</text><text x="26" y="1161" font-size="10" fill="#57606a">device · #301099</text></g>
+<line x1="238" y1="1155.0" x2="266" y2="1155.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>HPC-CM [clm_water_air_gen3_gold_rev_001]</title><rect x="270" y="1132" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1146" font-size="10.5">HPC-CM</text><text x="277" y="1159" font-size="9" fill="#57606a">clm_water_air_gen3_gold_rev_001</text></g>
+<rect x="10" y="1180" width="1410" height="126" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>Router: 02 AMR/UNI-32 (router_uni32)</title><rect x="18" y="1186" width="220" height="46" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2"/><text x="26" y="1201" font-size="11" font-weight="600">Router: 02 AMR/UNI-32</text><text x="26" y="1215" font-size="10" fill="#57606a">UNI/32 · #301002 · ROUTER → net 102</text></g>
+<line x1="238" y1="1209.0" x2="266" y2="1209.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 10 (NSA Offices) [piu_00_worx_wip03]</title><rect x="270" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1200" font-size="10.5">PIU 10 (NSA Offices)</text><text x="277" y="1213" font-size="9" fill="#57606a">piu_00_worx_wip03</text></g>
+<g><title>PIU 2 (Lobby) [piu_00_worx_wip03]</title><rect x="460" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1200" font-size="10.5">PIU 2 (Lobby)</text><text x="467" y="1213" font-size="9" fill="#57606a">piu_00_worx_wip03</text></g>
+<g><title>PIU 3 (OEM) [piu_00_share_worx_wip]</title><rect x="650" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="657" y="1200" font-size="10.5">PIU 3 (OEM)</text><text x="657" y="1213" font-size="9" fill="#57606a">piu_00_share_worx_wip</text></g>
+<g><title>PIU 4 (OEM) [piu_00_share_3_worx_wip]</title><rect x="840" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="847" y="1200" font-size="10.5">PIU 4 (OEM)</text><text x="847" y="1213" font-size="9" fill="#57606a">piu_00_share_3_worx_wip</text></g>
+<g><title>PIU 5 (7-11) [piu_00_piu5_worx_wip]</title><rect x="1030" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="1037" y="1200" font-size="10.5">PIU 5 (7-11)</text><text x="1037" y="1213" font-size="9" fill="#57606a">piu_00_piu5_worx_wip</text></g>
+<g><title>PIU 6 (7-11) [piu_00_piu6_worx_wip]</title><rect x="1220" y="1186" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="1227" y="1200" font-size="10.5">PIU 6 (7-11)</text><text x="1227" y="1213" font-size="9" fill="#57606a">piu_00_piu6_worx_wip</text></g>
+<g><title>PIU 7 (NSA Cubes) [piu_00_worx_wip03]</title><rect x="270" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1240" font-size="10.5">PIU 7 (NSA Cubes)</text><text x="277" y="1253" font-size="9" fill="#57606a">piu_00_worx_wip03</text></g>
+<g><title>PIU 8 (NSA Cubes) [piu_00_worx_wip03]</title><rect x="460" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1240" font-size="10.5">PIU 8 (NSA Cubes)</text><text x="467" y="1253" font-size="9" fill="#57606a">piu_00_worx_wip03</text></g>
+<g><title>PIU 9 (NSA Cubes) [piu_00_worx_wip03]</title><rect x="650" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="657" y="1240" font-size="10.5">PIU 9 (NSA Cubes)</text><text x="657" y="1253" font-size="9" fill="#57606a">piu_00_worx_wip03</text></g>
+<g><title>VAV 1 (ALCS/TPI) [vav_00_vav1_worx_wip]</title><rect x="840" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="847" y="1240" font-size="10.5">VAV 1 (ALCS/TPI)</text><text x="847" y="1253" font-size="9" fill="#57606a">vav_00_vav1_worx_wip</text></g>
+<g><title>VAV 2 (NSA Copier) [vav_00_worx_wip01]</title><rect x="1030" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="1037" y="1240" font-size="10.5">VAV 2 (NSA Copier)</text><text x="1037" y="1253" font-size="9" fill="#57606a">vav_00_worx_wip01</text></g>
+<g><title>VAV 4 (NSA Cubes) [vav_00_vav4_worx_wip]</title><rect x="1220" y="1226" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="1227" y="1240" font-size="10.5">VAV 4 (NSA Cubes)</text><text x="1227" y="1253" font-size="9" fill="#57606a">vav_00_vav4_worx_wip</text></g>
+<g><title>VAV 5 (NSA) [vav_00_vav5_worx_wip]</title><rect x="270" y="1266" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1280" font-size="10.5">VAV 5 (NSA)</text><text x="277" y="1293" font-size="9" fill="#57606a">vav_00_vav5_worx_wip</text></g>
+<g><title>VAV 6 (OEM) [vav_00_share_worx_wip]</title><rect x="460" y="1266" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1280" font-size="10.5">VAV 6 (OEM)</text><text x="467" y="1293" font-size="9" fill="#57606a">vav_00_share_worx_wip</text></g>
+<g><title>VAV 8 (OEM Conf) [vav_00_worx_wip01]</title><rect x="650" y="1266" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="657" y="1280" font-size="10.5">VAV 8 (OEM Conf)</text><text x="657" y="1293" font-size="9" fill="#57606a">vav_00_worx_wip01</text></g>
+<g><title>VAV 9 (OEM Lab) [vav_00_worx_wip01]</title><rect x="840" y="1266" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="847" y="1280" font-size="10.5">VAV 9 (OEM Lab)</text><text x="847" y="1293" font-size="9" fill="#57606a">vav_00_worx_wip01</text></g>
+<rect x="10" y="1312" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>Router: 03 Carrier (carrier_interface_ahu_1)</title><rect x="18" y="1318" width="220" height="46" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2"/><text x="26" y="1333" font-size="11" font-weight="600">Router: 03 Carrier</text><text x="26" y="1347" font-size="10" fill="#57606a">WebPRTL · #301003 · ROUTER → net 3011</text></g>
+<line x1="238" y1="1341.0" x2="266" y2="1341.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>Outside Air Temperature [oa_conditions]</title><rect x="270" y="1318" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="1332" font-size="10.5">Outside Air Temperature</text><text x="277" y="1345" font-size="9" fill="#57606a">oa_conditions</text></g>
+<g><title>RTU-1 (ALC) BACnet Integration to UPC [rtu1_1025_50p_20220509_worx]</title><rect x="460" y="1318" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="467" y="1332" font-size="10.5">RTU-1 (ALC) BACnet Integrat…</text><text x="467" y="1345" font-size="9" fill="#57606a">rtu1_1025_50p_20220509_worx</text></g>
+<g><title>RTU-2 (ALC) BACnet Integration to UPC [rtu2_1025_50p_20220509_worx]</title><rect x="650" y="1318" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="657" y="1332" font-size="10.5">RTU-2 (ALC) BACnet Integrat…</text><text x="657" y="1345" font-size="9" fill="#57606a">rtu2_1025_50p_20220509_worx</text></g>
+<g><title>Triggered Reports Program [triggered_reports_w_schdule]</title><rect x="840" y="1318" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="847" y="1332" font-size="10.5">Triggered Reports Program</text><text x="847" y="1345" font-size="9" fill="#57606a">triggered_reports_w_schdule</text></g>
+<rect x="10" y="1366" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>Router: 04 AAR (2nd Flr) (router_aar4_301004)</title><rect x="18" y="1372" width="220" height="46" rx="6" fill="#1a7f3722" stroke="#1a7f37" stroke-width="2"/><text x="26" y="1387" font-size="11" font-weight="600">Router: 04 AAR (2nd Flr)</text><text x="26" y="1401" font-size="10" fill="#57606a">AAR · #301004 · ROUTER → net 30100</text></g>
+<text x="270" y="1399.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="1428" width="1410" height="26" rx="5" fill="#bc4c00"/><text x="20" y="1445" font-size="12" font-weight="700" fill="#fff">MS/TP · network 102 · MSTP-102 · bus</text>
+<rect x="10" y="1460" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>ZN341v+ Restrooms 20 (zn341v_restrooms)</title><rect x="18" y="1466" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1481" font-size="11" font-weight="600">ZN341v+ Restrooms 20</text><text x="26" y="1495" font-size="10" fill="#57606a">ZN341V+ · #10220</text></g>
+<line x1="238" y1="1489.0" x2="266" y2="1489.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>PIU 11 (Restrooms) [piu_zs_chm_heating_ec_worx03]</title><rect x="270" y="1466" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1480" font-size="10.5">PIU 11 (Restrooms)</text><text x="277" y="1493" font-size="9" fill="#57606a">piu_zs_chm_heating_ec_worx03</text></g>
+<rect x="10" y="1514" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>ZN341v+ Show Case (zn341v_show_case)</title><rect x="18" y="1520" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1535" font-size="11" font-weight="600">ZN341v+ Show Case</text><text x="26" y="1549" font-size="10" fill="#57606a">ZN341V+ · #10221</text></g>
+<line x1="238" y1="1543.0" x2="266" y2="1543.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>VAV 3 (Show Case) [vav_zs_chm_showcase_wireless_ec_worx_ik]</title><rect x="270" y="1520" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1534" font-size="10.5">VAV 3 (Show Case)</text><text x="277" y="1547" font-size="9" fill="#57606a">vav_zs_chm_showcase_wireless_ec_w…</text></g>
+<rect x="10" y="1568" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>ZN341v+ Break Room (zn341v_break_room)</title><rect x="18" y="1574" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1589" font-size="11" font-weight="600">ZN341v+ Break Room</text><text x="26" y="1603" font-size="10" fill="#57606a">ZN341V+ · #10222</text></g>
+<line x1="238" y1="1597.0" x2="266" y2="1597.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>PIU 8 (Break Room) [piu_zs_chm_eqtouch2_ec_worx]</title><rect x="270" y="1574" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1588" font-size="10.5">PIU 8 (Break Room)</text><text x="277" y="1601" font-size="9" fill="#57606a">piu_zs_chm_eqtouch2_ec_worx</text></g>
+<rect x="10" y="1622" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>ZN341v+ Admin office 33 (zn341v_admin_office)</title><rect x="18" y="1628" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1643" font-size="11" font-weight="600">ZN341v+ Admin office 33</text><text x="26" y="1657" font-size="10" fill="#57606a">ZN341V+ · #10233</text></g>
+<line x1="238" y1="1651.0" x2="266" y2="1651.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>PIU 1 (NSA Office) [vv-t_elec-ao_fn_zn1_adv_rev1_worx]</title><rect x="270" y="1628" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1642" font-size="10.5">PIU 1 (NSA Office)</text><text x="277" y="1655" font-size="9" fill="#57606a">vv-t_elec-ao_fn_zn1_adv_rev1_worx</text></g>
+<rect x="10" y="1676" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>ZN341v+ Test Lab 50 (zn341v_lab_50)</title><rect x="18" y="1682" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1697" font-size="11" font-weight="600">ZN341v+ Test Lab 50</text><text x="26" y="1711" font-size="10" fill="#57606a">ZN341V+ · #10234</text></g>
+<line x1="238" y1="1705.0" x2="266" y2="1705.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>VAV 7 (NSA Cubes) [vav_00_zn_worx_wip01]</title><rect x="270" y="1682" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1696" font-size="10.5">VAV 7 (NSA Cubes)</text><text x="277" y="1709" font-size="9" fill="#57606a">vav_00_zn_worx_wip01</text></g>
+<rect x="10" y="1738" width="1410" height="26" rx="5" fill="#bc4c00"/><text x="20" y="1755" font-size="12" font-weight="700" fill="#fff">MS/TP · network 3011 · CCN BACnet MSTP · bus</text>
+<rect x="10" y="1770" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>CM06 SE6104sp (cm06_se6104sp_3011)</title><rect x="18" y="1776" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1791" font-size="11" font-weight="600">CM06 SE6104sp</text><text x="26" y="1805" font-size="10" fill="#57606a">SE6104sp · #301106</text></g>
+<line x1="238" y1="1799.0" x2="266" y2="1799.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>RTU 1 (ALC) Temp Monitor IO [rtu_temp_monitor]</title><rect x="270" y="1776" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1790" font-size="10.5">RTU 1 (ALC) Temp Monitor IO</text><text x="277" y="1803" font-size="9" fill="#57606a">rtu_temp_monitor</text></g>
+<rect x="10" y="1824" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>CM07 SE6104sp (cm07_se6104sp_3011)</title><rect x="18" y="1830" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1845" font-size="11" font-weight="600">CM07 SE6104sp</text><text x="26" y="1859" font-size="10" fill="#57606a">SE6104sp · #301107</text></g>
+<line x1="238" y1="1853.0" x2="266" y2="1853.0" stroke="#bc4c00" stroke-width="2"/>
+<g><title>RTU 2 (ALC) Temp Monitor IO [rtu_temp_monitor]</title><rect x="270" y="1830" width="184" height="34" rx="4" fill="#fff" stroke="#bc4c00"/><text x="277" y="1844" font-size="10.5">RTU 2 (ALC) Temp Monitor IO</text><text x="277" y="1857" font-size="9" fill="#57606a">rtu_temp_monitor</text></g>
+<rect x="10" y="1878" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>Controller 0 (device1610100)</title><rect x="18" y="1884" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1899" font-size="11" font-weight="600">Controller 0</text><text x="26" y="1913" font-size="10" fill="#57606a">UPC Open · #1610100</text></g>
+<text x="270" y="1911.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="1932" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>Controller 2 (device1610102)</title><rect x="18" y="1938" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="1953" font-size="11" font-weight="600">Controller 2</text><text x="26" y="1967" font-size="10" fill="#57606a">UPC Open · #1610102</text></g>
+<text x="270" y="1965.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="1986" width="1410" height="48" rx="5" fill="#bc4c000d" stroke="#bc4c0055"/>
+<g><title>Controller 4 (device1610104)</title><rect x="18" y="1992" width="220" height="46" rx="6" fill="#fff" stroke="#bc4c00" stroke-width="1"/><text x="26" y="2007" font-size="11" font-weight="600">Controller 4</text><text x="26" y="2021" font-size="10" fill="#57606a">UPC Open · #1610104</text></g>
+<text x="270" y="2019.0" font-size="10.5" fill="#8c959f" font-style="italic">no equipment linked</text>
+<rect x="10" y="2048" width="1410" height="26" rx="5" fill="#1a7f37"/><text x="20" y="2065" font-size="12" font-weight="700" fill="#fff">ARCNET · network 30100 · Router 4 Arcnet_100 · bus</text>
+<rect x="10" y="2080" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM01 ZN341_4 (cm01_zn341_4)</title><rect x="18" y="2086" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2101" font-size="11" font-weight="600">CM01 ZN341_4</text><text x="26" y="2115" font-size="10" fill="#57606a">ZN341V+ · #3010001</text></g>
+<line x1="238" y1="2109.0" x2="266" y2="2109.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-18 Break/Recording [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2086" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2100" font-size="10.5">PIU 2-18 Break/Recording</text><text x="277" y="2113" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2134" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM02 ZN341_4 (cm02_zn341_4)</title><rect x="18" y="2140" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2155" font-size="11" font-weight="600">CM02 ZN341_4</text><text x="26" y="2169" font-size="10" fill="#57606a">ZN341V+ · #3010002</text></g>
+<line x1="238" y1="2163.0" x2="266" y2="2163.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-16 Open Office 203A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2140" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2154" font-size="10.5">PIU 2-16 Open Office 203A</text><text x="277" y="2167" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2188" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM03 ZN341_4 (cm03_zn341_4)</title><rect x="18" y="2194" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2209" font-size="11" font-weight="600">CM03 ZN341_4</text><text x="26" y="2223" font-size="10" fill="#57606a">ZN341V+ · #3010003</text></g>
+<line x1="238" y1="2217.0" x2="266" y2="2217.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-4 Open Office 203 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2194" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2208" font-size="10.5">PIU 2-4 Open Office 203</text><text x="277" y="2221" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2242" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM04 ZN341_4 (cm04_zn341_4)</title><rect x="18" y="2248" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2263" font-size="11" font-weight="600">CM04 ZN341_4</text><text x="26" y="2277" font-size="10" fill="#57606a">ZN341A · #3010004</text></g>
+<line x1="238" y1="2271.0" x2="266" y2="2271.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-13 Open Office 202 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2248" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2262" font-size="10.5">PIU 2-13 Open Office 202</text><text x="277" y="2275" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2296" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM05 ZN341_4 (cm05_zn341_4)</title><rect x="18" y="2302" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2317" font-size="11" font-weight="600">CM05 ZN341_4</text><text x="26" y="2331" font-size="10" fill="#57606a">ZN341V+ · #3010005</text></g>
+<line x1="238" y1="2325.0" x2="266" y2="2325.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-15 Open Office 202 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2302" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2316" font-size="10.5">PIU 2-15 Open Office 202</text><text x="277" y="2329" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2350" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM06 ZN341_4 (cm06_zn341_4)</title><rect x="18" y="2356" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2371" font-size="11" font-weight="600">CM06 ZN341_4</text><text x="26" y="2385" font-size="10" fill="#57606a">ZN341V+ · #3010006</text></g>
+<line x1="238" y1="2379.0" x2="266" y2="2379.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-20 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2356" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2370" font-size="10.5">PIU 2-20 Open Office 201A</text><text x="277" y="2383" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2404" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM07 ZN341_4 (cm07_zn341_4)</title><rect x="18" y="2410" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2425" font-size="11" font-weight="600">CM07 ZN341_4</text><text x="26" y="2439" font-size="10" fill="#57606a">ZN341V+ · #3010007</text></g>
+<line x1="238" y1="2433.0" x2="266" y2="2433.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-14 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2410" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2424" font-size="10.5">PIU 2-14 Open Office 201A</text><text x="277" y="2437" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2458" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM08 ZN341_4 (cm08_zn341_4)</title><rect x="18" y="2464" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2479" font-size="11" font-weight="600">CM08 ZN341_4</text><text x="26" y="2493" font-size="10" fill="#57606a">ZN341V+ · #3010008</text></g>
+<line x1="238" y1="2487.0" x2="266" y2="2487.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-3 Open Office 201A [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2464" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2478" font-size="10.5">PIU 2-3 Open Office 201A</text><text x="277" y="2491" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2512" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM09 ZN341_4 (cm09_zn341_4)</title><rect x="18" y="2518" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2533" font-size="11" font-weight="600">CM09 ZN341_4</text><text x="26" y="2547" font-size="10" fill="#57606a">ZN341V+ · #3010009</text></g>
+<line x1="238" y1="2541.0" x2="266" y2="2541.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-23 Training UTC Univ [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2518" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2532" font-size="10.5">PIU 2-23 Training UTC Univ</text><text x="277" y="2545" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2566" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM10 ZN341_4 (cm10_zn341_4)</title><rect x="18" y="2572" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2587" font-size="11" font-weight="600">CM10 ZN341_4</text><text x="26" y="2601" font-size="10" fill="#57606a">ZN341V+ · #3010010</text></g>
+<line x1="238" y1="2595.0" x2="266" y2="2595.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-24 Training UTC Univ [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2572" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2586" font-size="10.5">PIU 2-24 Training UTC Univ</text><text x="277" y="2599" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2620" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM11 ZN341_4 (cm11_zn341_4)</title><rect x="18" y="2626" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2641" font-size="11" font-weight="600">CM11 ZN341_4</text><text x="26" y="2655" font-size="10" fill="#57606a">ZN341V+ · #3010011</text></g>
+<line x1="238" y1="2649.0" x2="266" y2="2649.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-5 Toilets/Reception [piu_zs_et_chm_htg_ec_base_worx01_abd]</title><rect x="270" y="2626" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2640" font-size="10.5">PIU 2-5 Toilets/Reception</text><text x="277" y="2653" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01_…</text></g>
+<rect x="10" y="2674" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM12 ZN341_4 (cm12_zn341_4)</title><rect x="18" y="2680" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2695" font-size="11" font-weight="600">CM12 ZN341_4</text><text x="26" y="2709" font-size="10" fill="#57606a">ZN341V+ · #3010012</text></g>
+<line x1="238" y1="2703.0" x2="266" y2="2703.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-8 Open Office 232 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2680" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2694" font-size="10.5">PIU 2-8 Open Office 232</text><text x="277" y="2707" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2728" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM13 ZN341_4 (cm13_zn341_4)</title><rect x="18" y="2734" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2749" font-size="11" font-weight="600">CM13 ZN341_4</text><text x="26" y="2763" font-size="10" fill="#57606a">ZN341V+ · #3010013</text></g>
+<line x1="238" y1="2757.0" x2="266" y2="2757.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-11 Offices 233-235 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2734" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2748" font-size="10.5">PIU 2-11 Offices 233-235</text><text x="277" y="2761" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2782" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM14 ZN341_4 (cm14_zn341_4)</title><rect x="18" y="2788" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2803" font-size="11" font-weight="600">CM14 ZN341_4</text><text x="26" y="2817" font-size="10" fill="#57606a">ZN341V+ · #3010014</text></g>
+<line x1="238" y1="2811.0" x2="266" y2="2811.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-10 Office 231 [piu_zs_et_chm_htg_ec_mead_worx01]</title><rect x="270" y="2788" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2802" font-size="10.5">PIU 2-10 Office 231</text><text x="277" y="2815" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_mead_worx01</text></g>
+<rect x="10" y="2836" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM15 ZN341_4 (cm15_zn341_4)</title><rect x="18" y="2842" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2857" font-size="11" font-weight="600">CM15 ZN341_4</text><text x="26" y="2871" font-size="10" fill="#57606a">ZN341V+ · #3010015</text></g>
+<line x1="238" y1="2865.0" x2="266" y2="2865.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-9 Conference 230 Airport [piu_zs_et_chm_htg_ec_lites_worx01]</title><rect x="270" y="2842" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2856" font-size="10.5">PIU 2-9 Conference 230 Airp…</text><text x="277" y="2869" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_lites_worx01</text></g>
+<rect x="10" y="2890" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM16 ZN341_4 (cm16_zn341_4)</title><rect x="18" y="2896" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2911" font-size="11" font-weight="600">CM16 ZN341_4</text><text x="26" y="2925" font-size="10" fill="#57606a">ZN341V+ · #3010016</text></g>
+<line x1="238" y1="2919.0" x2="266" y2="2919.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-19 Breakout [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2896" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2910" font-size="10.5">PIU 2-19 Breakout</text><text x="277" y="2923" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2944" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM17 ZN341_4 (cm17_zn341_4)</title><rect x="18" y="2950" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="2965" font-size="11" font-weight="600">CM17 ZN341_4</text><text x="26" y="2979" font-size="10" fill="#57606a">ZN341V+ · #3010017</text></g>
+<line x1="238" y1="2973.0" x2="266" y2="2973.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-2 Open Seating 228 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="2950" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="2964" font-size="10.5">PIU 2-2 Open Seating 228</text><text x="277" y="2977" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="2998" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM18 ZN341_4 (cm18_zn341_4)</title><rect x="18" y="3004" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3019" font-size="11" font-weight="600">CM18 ZN341_4</text><text x="26" y="3033" font-size="10" fill="#57606a">ZN341V+ · #3010018</text></g>
+<line x1="238" y1="3027.0" x2="266" y2="3027.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-7 Conference 226 Hotel Cal [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3004" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3018" font-size="10.5">PIU 2-7 Conference 226 Hote…</text><text x="277" y="3031" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3052" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM19 ZN341_4 (cm19_zn341_4)</title><rect x="18" y="3058" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3073" font-size="11" font-weight="600">CM19 ZN341_4</text><text x="26" y="3087" font-size="10" fill="#57606a">ZN341V+ · #3010019</text></g>
+<line x1="238" y1="3081.0" x2="266" y2="3081.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-6 Office 225 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3058" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3072" font-size="10.5">PIU 2-6 Office 225</text><text x="277" y="3085" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3106" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM20 ZN341_4 (cm20_zn341_4)</title><rect x="18" y="3112" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3127" font-size="11" font-weight="600">CM20 ZN341_4</text><text x="26" y="3141" font-size="10" fill="#57606a">ZN341V+ · #3010020</text></g>
+<line x1="238" y1="3135.0" x2="266" y2="3135.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-12 Open Office 221 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3112" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3126" font-size="10.5">PIU 2-12 Open Office 221</text><text x="277" y="3139" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3160" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM21 ZN341_4 (cm21_zn341_4)</title><rect x="18" y="3166" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3181" font-size="11" font-weight="600">CM21 ZN341_4</text><text x="26" y="3195" font-size="10" fill="#57606a">ZN341V+ · #3010021</text></g>
+<line x1="238" y1="3189.0" x2="266" y2="3189.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-17 Office [piu_zs_et_chm_htg_ec_base_worx01_ik]</title><rect x="270" y="3166" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3180" font-size="10.5">PIU 2-17 Office</text><text x="277" y="3193" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01_…</text></g>
+<rect x="10" y="3214" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM22 ZN341_4 (cm22_zn341_4)</title><rect x="18" y="3220" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3235" font-size="11" font-weight="600">CM22 ZN341_4</text><text x="26" y="3249" font-size="10" fill="#57606a">ZN341V+ · #3010022</text></g>
+<line x1="238" y1="3243.0" x2="266" y2="3243.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-22 Office 213 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3220" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3234" font-size="10.5">PIU 2-22 Office 213</text><text x="277" y="3247" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3268" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM23 ZN341_4 (cm23_zn341_4)</title><rect x="18" y="3274" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3289" font-size="11" font-weight="600">CM23 ZN341_4</text><text x="26" y="3303" font-size="10" fill="#57606a">ZN341V+ · #3010023</text></g>
+<line x1="238" y1="3297.0" x2="266" y2="3297.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-21 Conference 218 [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3274" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3288" font-size="10.5">PIU 2-21 Conference 218</text><text x="277" y="3301" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3322" width="1410" height="48" rx="5" fill="#1a7f370d" stroke="#1a7f3755"/>
+<g><title>CM24 ZN341_4 (cm24_zn341_4)</title><rect x="18" y="3328" width="220" height="46" rx="6" fill="#fff" stroke="#1a7f37" stroke-width="1"/><text x="26" y="3343" font-size="11" font-weight="600">CM24 ZN341_4</text><text x="26" y="3357" font-size="10" fill="#57606a">ZN341V+ · #3010024</text></g>
+<line x1="238" y1="3351.0" x2="266" y2="3351.0" stroke="#1a7f37" stroke-width="2"/>
+<g><title>PIU 2-1 Huddle [piu_zs_et_chm_htg_ec_base_worx01]</title><rect x="270" y="3328" width="184" height="34" rx="4" fill="#fff" stroke="#1a7f37"/><text x="277" y="3342" font-size="10.5">PIU 2-1 Huddle</text><text x="277" y="3355" font-size="9" fill="#57606a">piu_zs_et_chm_htg_ec_base_worx01</text></g>
+<rect x="10" y="3384" width="1410" height="26" rx="5" fill="#6e7781"/><text x="20" y="3401" font-size="12" font-weight="700" fill="#fff">No controller link in the core database (9 equipment)</text>
+<g><title>Accu Weather 24 [weather_accuweather_hr_next24]</title><rect x="20" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="27" y="3430" font-size="10.5">Accu Weather 24</text><text x="27" y="3443" font-size="9" fill="#57606a">weather_accuweather_hr_next24</text></g>
+<g><title>Apollogic_Zone5 [iaq_datalogger_1_2]</title><rect x="210" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="217" y="3430" font-size="10.5">Apollogic_Zone5</text><text x="217" y="3443" font-size="9" fill="#57606a">iaq_datalogger_1_2</text></g>
+<g><title>Modbus Meter Main [h8036_pwr_meter]</title><rect x="400" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="407" y="3430" font-size="10.5">Modbus Meter Main</text><text x="407" y="3443" font-size="9" fill="#57606a">h8036_pwr_meter</text></g>
+<g><title>Nexus PQM Meter [nexus_pqm_1250_wye]</title><rect x="590" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="597" y="3430" font-size="10.5">Nexus PQM Meter</text><text x="597" y="3443" font-size="9" fill="#57606a">nexus_pqm_1250_wye</text></g>
+<g><title>RTU 1 48P/50P LRT (Carrier) UPC [rtu_48p_50p_v06-custom_worx]</title><rect x="780" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="787" y="3430" font-size="10.5">RTU 1 48P/50P LRT (Carrier)…</text><text x="787" y="3443" font-size="9" fill="#57606a">rtu_48p_50p_v06-custom_worx</text></g>
+<g><title>RTU 2 48P/50P LRT (Carrier) UPC [rtu_48p_50p_v06-custom_worx]</title><rect x="970" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="977" y="3430" font-size="10.5">RTU 2 48P/50P LRT (Carrier)…</text><text x="977" y="3443" font-size="9" fill="#57606a">rtu_48p_50p_v06-custom_worx</text></g>
+<g><title>Temp Pulse Meter [electric_meter_pulse]</title><rect x="1160" y="3416" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="1167" y="3430" font-size="10.5">Temp Pulse Meter</text><text x="1167" y="3443" font-size="9" fill="#57606a">electric_meter_pulse</text></g>
+<g><title>Weather [weatherwbg]</title><rect x="20" y="3456" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="27" y="3470" font-size="10.5">Weather</text><text x="27" y="3483" font-size="9" fill="#57606a">weatherwbg</text></g>
+<g><title>test [vav_iaqventctrl_zone_ec_oem]</title><rect x="210" y="3456" width="184" height="34" rx="4" fill="#fff" stroke="#6e7781"/><text x="217" y="3470" font-size="10.5">test</text><text x="217" y="3483" font-size="9" fill="#57606a">vav_iaqventctrl_zone_ec_oem</text></g></svg></div>
+<table><tr><th>Type</th><th>Network</th><th>Name</th><th>Physical shape</th><th>Controllers</th><th>IP subnet</th></tr><tr><td style="color:#1a7f37;font-weight:600">ARCNET</td><td>2400</td><td>arcnet 1st floor</td><td>bus: bus or hub-star (not recorded)</td><td>3</td><td>-</td></tr><tr><td style="color:#1a7f37;font-weight:600">ARCNET</td><td>30100</td><td>Router 4 Arcnet_100</td><td>bus: bus or hub-star (not recorded)</td><td>24</td><td>-</td></tr><tr><td style="color:#1a7f37;font-weight:600">ARCNET</td><td>4401</td><td>Media: 4401 Arcnet</td><td>bus: bus or hub-star (not recorded)</td><td>6</td><td>-</td></tr><tr><td style="color:#1f6feb;font-weight:600">BACnet/IP</td><td>888</td><td>Bacnet IP 888</td><td>star: Ethernet star around a switch (inferred)</td><td>6</td><td>172.31.222.64/26</td></tr><tr><td style="color:#8250df;font-weight:600">BACnet/SC</td><td>2401</td><td>BACnet/SC</td><td>star: logical star around an SC hub (inferred)</td><td>1</td><td>-</td></tr><tr><td style="color:#bc4c00;font-weight:600">MS/TP</td><td>102</td><td>MSTP-102</td><td>bus: RS-485 daisy-chain bus</td><td>5</td><td>-</td></tr><tr><td style="color:#bc4c00;font-weight:600">MS/TP</td><td>3011</td><td>CCN BACnet MSTP</td><td>bus: RS-485 daisy-chain bus</td><td>5</td><td>-</td></tr></table>
+<p class="note">50 controllers, 9 of them routers (6 join networks). Equipment links come from core LINK type 207.</p>
+<script>const s=document.getElementById('s');document.getElementById('z').oninput=e=>{s.setAttribute('width',3334*e.target.value/100);s.setAttribute('height',1204*e.target.value/100)}</script>
+</body></html>

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+*.local
+
+# macOS / OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Secrets & Environment
+.env
+.env.*
+*.pem
+*.key
+service-account*.json
+
+# Large uncompressed raw telemetry (>100MB, use telemetry_ts.csv.gz)
+Source Data/telemetry_ts.csv

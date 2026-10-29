@@ -1,0 +1,10 @@
+{
+  "display_name": "acme-abo-multi-agent-system",
+  "resource_name": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+  "project_id": "genai-demos-391416",
+  "location": "us-central1",
+  "staging_bucket": "gs://genai-demos-391416-acme-abo-building-exports",
+  "root_agent": "abo_supervisor_agent",
+  "agent_identity_sa": "sa-agent-supervisor@genai-demos-391416.iam.gserviceaccount.com",
+  "enable_tracing": true
+}

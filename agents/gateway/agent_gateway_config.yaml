@@ -1,0 +1,65 @@
+# =============================================================================
+# ACME Co. Autonomous Building Operations (ABO)
+# Google Cloud Agent Gateway Declarative Policy & Routing Configuration
+# =============================================================================
+apiVersion: agentplatform.googleapis.com/v1
+kind: AgentGateway
+metadata:
+  name: acme-abo-agent-gateway
+  project: genai-demos-391416
+  location: us-central1
+spec:
+  runtimeTarget: acme-abo-agent-platform-runtime
+  registryRef: acme-abo-agent-registry
+
+  # 1. North-South Ingress Policy (Cloud Run Cockpit BFF -> Agent Platform Runtime)
+  ingress:
+    RequireMutualTLS: true
+    allowedCallers:
+      - serviceAccount: sa-cockpit-cloudrun@genai-demos-391416.iam.gserviceaccount.com
+    protocols:
+      - REST
+      - SSE
+      - A2A
+    rateLimit:
+      requestsPerMinute: 300
+      burstSize: 60
+
+  # 2. East-West A2A Delegation & Agent Identity Enforcement
+  a2aRouting:
+    enforceRegistryLookup: true
+    requireAgentIdentityToken: true
+    allowedDelegationEdges:
+      - from: abo_supervisor_agent
+        to:
+          - alarm_triage_agent
+          - cross_layer_rca_agent
+          - energy_optimization_agent
+          - remediation_dispatch_agent
+
+  # 3. Outbound Tool & Safety Guardrails (SHACL + HITL Priority-8 Enforcement)
+  toolPolicies:
+    - toolName: propose_safe_bacnet_write_property
+      allowedAgentIdentities:
+        - principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-remediation
+      requireShaclValidation: true
+      requireHitlApprovalForExecution: true
+      allowedBacnetPriorities: [8]
+      blockedBacnetPriorities: [1, 2, 3, 4] # Life-safety & critical hardware lockouts
+
+  # 4. Full OpenTelemetry (OTel) Observability & W3C Trace Context Propagation
+  observability:
+    openTelemetry:
+      enabled: true
+      propagateW3CTraceContext: true
+      samplingRate: 1.0
+      exporters:
+        traces: cloudtrace.googleapis.com
+        metrics: monitoring.googleapis.com
+        logs: logging.googleapis.com
+      semanticConventions:
+        - gen_ai.*
+        - agent.identity.*
+        - agent.registry.*
+        - agent.gateway.*
+

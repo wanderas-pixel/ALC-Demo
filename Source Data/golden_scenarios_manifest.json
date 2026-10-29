@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-10-23T14:15:00-04:00",
+  "source_ontology": "ec_building_brick.ttl",
+  "time_window": {
+    "oldest_sample": "2026-09-09 00:00:00",
+    "newest_sample": "2026-10-07 09:30:00",
+    "interval_minutes": 15,
+    "intervals_per_series": 2688
+  },
+  "files_generated": {
+    "portfolio_sites.csv": 5,
+    "equipment_nodes.csv": 126,
+    "spatial_nodes.csv": 38,
+    "network_and_controller_nodes.csv": 100,
+    "graph_nodes.csv": 250,
+    "graph_edges.csv": 410,
+    "point_catalog.csv": 1653,
+    "svweb_datasources.csv": 350,
+    "telemetry_ts.csv": 940800,
+    "bas_events.csv": 360,
+    "bas_events_baseline.csv": 322,
+    "live_injection_payloads.json": 4
+  },
+  "golden_scenarios": [
+    {
+      "scenario_id": "SCN-1_AHU1_COOLING_FAULT",
+      "title": "Upstream Rooftop Unit Cooling Fault (bldg:area_ec_ahu_1 -> 14 1st-Floor Zone Alarms)",
+      "active_alarms_count": 15,
+      "root_cause_node": "bldg:area_ec_ahu_1",
+      "root_cause_dbid": "DBID:1:856800"
+    },
+    {
+      "scenario_id": "SCN-2_MSTP102_BUS_BOTTLENECK",
+      "title": "BACnet MS/TP-102 Bus Bottleneck & Subnet Mask Mismatch (#301002 & #71101)",
+      "active_alarms_count": 17,
+      "root_cause_node": "bldg:bacnet_device_301002",
+      "secondary_config_fault_node": "bldg:bacnet_device_71101"
+    },
+    {
+      "scenario_id": "SCN-3_SILENT_ENERGY_BLEED",
+      "title": "Silent Energy Bleed: Missing Night Setback (72.2F Night vs 72.0F Day), Rogue Reheat (PIU 2-1 42 kWh, PIU 2-20 26 kWh) & 24 Overrides",
+      "active_alarms_count": 4,
+      "quantified_annual_savings_usd": 18400
+    },
+    {
+      "scenario_id": "SCN-4_CRITICAL_SERVER_ROOM_SLA",
+      "title": "Tier-1 Critical Space Predictive Protection (ISS Server Room FCU 3.5x Compressor Short-Cycling)",
+      "active_alarms_count": 2,
+      "root_cause_node": "bldg:ec_1st_floor_ec_server_rm",
+      "root_cause_dbid": "DBID:1:856291"
+    }
+  ]
+}

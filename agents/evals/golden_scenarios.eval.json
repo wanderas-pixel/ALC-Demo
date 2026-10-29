@@ -1,0 +1,97 @@
+{
+  "eval_suite_name": "acme_abo_golden_scenarios_v1",
+  "model": "gemini-3.8-flash",
+  "framework": "google-adk-2.0",
+  "runner": "agents-cli eval",
+  "scenarios": [
+    {
+      "scenario_id": "SCN-1",
+      "option_label": "Option A — Cascading Rooftop Unit Failure",
+      "prompt": "We have an active alarm storm on Floor 1 East Wing with multiple VAVs reporting high supply air temperature and warm space temperatures. Diagnose the true root cause, suppress sympathetic alarms, and stage a safe BACnet mitigation.",
+      "expected_tool_trajectory": [
+        "query_active_alarms_and_root_causes",
+        "traverse_upstream_impact_chain",
+        "verify_cross_layer_bacnet_vs_mechanical",
+        "propose_safe_bacnet_write_property",
+        "create_work_order_ticket"
+      ],
+      "expected_entities": [
+        "bldg:rtu_1",
+        "bldg:rtu_1_econ_fault",
+        "bldg:rtu_1_sa_temp",
+        "bldg:vav_1_101",
+        "bldg:vav_1_108",
+        "EVT-SCN1-ROOT"
+      ],
+      "assertions": {
+        "root_cause_identified": "bldg:rtu_1",
+        "sympathetic_alarms_suppressed_count": 8,
+        "bacnet_priority": 8,
+        "shacl_validation": "PASS"
+      }
+    },
+    {
+      "scenario_id": "SCN-2",
+      "option_label": "BACnet MS/TP Trunk 2 Token Drop & Controller Fault",
+      "prompt": "Seven VAV boxes (VAV-2-109 through VAV-2-115) just went unresponsive simultaneously. Before dispatching HVAC technicians for 7 mechanical failures, verify whether this is a BACnet network transport issue.",
+      "expected_tool_trajectory": [
+        "query_active_alarms_and_root_causes",
+        "verify_cross_layer_bacnet_vs_mechanical"
+      ],
+      "expected_entities": [
+        "bacnet:port_mstp_trunk_2",
+        "bacnet:ctrl_router_main",
+        "EVT-SCN2-ROOT"
+      ],
+      "assertions": {
+        "fault_classification": "OT_NETWORK_TRANSPORT_FAULT",
+        "false_truck_rolls_prevented": 7
+      }
+    },
+    {
+      "scenario_id": "SCN-3",
+      "option_label": "Silent Simultaneous Heating & Cooling Energy Waste",
+      "prompt": "Run a peer-cohort anomaly audit across the Floor 1 VAV boxes to check if any unit is fighting itself with simultaneous heating and cooling despite zero active BAS alarms.",
+      "expected_tool_trajectory": [
+        "detect_peer_cohort_zscore_anomalies",
+        "evaluate_timeseries_forecast_and_drift",
+        "propose_safe_bacnet_write_property"
+      ],
+      "expected_entities": [
+        "bldg:vav_4_104",
+        "bldg:vav_4_104_rh_valve",
+        "bldg:vav_4_104_da_temp"
+      ],
+      "assertions": {
+        "outlier_node": "bldg:vav_4_104",
+        "min_abs_z_score": 2.2,
+        "estimated_annual_savings_usd": 4380
+      }
+    },
+    {
+      "scenario_id": "SCN-4",
+      "option_label": "Option B — Critical Server Room Predictive Alert",
+      "prompt": "Evaluate the predictive thermal trajectory for Critical Server Room (bldg:zone_server_room) and its dedicated cooling unit (bldg:cooling_only_rtu_2). Can we prevent a 78.0°F thermal shutdown before the hard high-temp threshold trips?",
+      "expected_tool_trajectory": [
+        "evaluate_timeseries_forecast_and_drift",
+        "verify_cross_layer_bacnet_vs_mechanical",
+        "propose_safe_bacnet_write_property",
+        "create_work_order_ticket"
+      ],
+      "expected_entities": [
+        "bldg:cooling_only_rtu_2",
+        "bldg:zone_server_room",
+        "bldg:zone_server_room_space_temp",
+        "bldg:cooling_only_rtu_2_comp_current",
+        "EVT-SCN4-PRED"
+      ],
+      "assertions": {
+        "critical_threshold_degf": 78.0,
+        "lead_time_minutes_min": 20,
+        "bacnet_priority": 8,
+        "shacl_validation": "PASS"
+      }
+    }
+  ]
+}
+

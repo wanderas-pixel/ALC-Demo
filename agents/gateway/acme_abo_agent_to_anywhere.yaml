@@ -1,0 +1,12 @@
+description: Google-managed Agent-to-Anywhere Gateway for ACME ABO Supervisor Agent
+googleManaged:
+  governedAccessPath: AGENT_TO_ANYWHERE
+labels:
+  access-path: agent-to-anywhere
+  agent: acme-abo-supervisor
+name: projects/genai-demos-391416/locations/us-central1/agentGateways/acme-abo-agent-to-anywhere
+protocols:
+- MCP
+registries:
+- //agentregistry.googleapis.com/projects/genai-demos-391416/locations/us-central1
+

@@ -1,0 +1,101 @@
+node_id,entity_category,label,controller_model,device_type,media_type,network_id,network_number,physical_shape,mac_address,ip_address,subnet_mask,default_gateway,serial_number,dbid,is_router,routes_to_Or_behind_router,config_anomaly_flag
+bldg:network_102,bsm:Network,MSTP-102,,network_segment,MS/TP,bldg:network_102,102,bus,,,,,,,False,bldg:bacnet_device_301002,NONE
+bldg:network_2400,bsm:Network,arcnet 1st floor,,network_segment,ARCNET,bldg:network_2400,2400,bus,,,,,,,False,bldg:bacnet_device_240000,NONE
+bldg:network_2401,bsm:Network,BACnet/SC,,network_segment,BACnet/SC,bldg:network_2401,2401,star,,,,,,,False,,NONE
+bldg:network_30100,bsm:Network,Router 4 Arcnet_100,,network_segment,ARCNET,bldg:network_30100,30100,bus,,,,,,,False,bldg:bacnet_device_301004,NONE
+bldg:network_3011,bsm:Network,CCN BACnet MSTP,,network_segment,MS/TP,bldg:network_3011,3011,bus,,,,,,,False,bldg:bacnet_device_301003,NONE
+bldg:network_4401,bsm:Network,Media: 4401 Arcnet,,network_segment,ARCNET,bldg:network_4401,4401,bus,,,,,,,False,bldg:bacnet_device_301101,NONE
+bldg:network_888,bsm:Network,Bacnet IP 888,,network_segment,BACnet/IP,bldg:network_888,888,star,,172.31.222.64/26,255.255.255.192,172.31.222.65,,,False,bldg:bacnet_device_240004,NONE
+bldg:network_2401_hub,bsm:InferredNetworkDevice,SC Hub (Inferred net 2401),Inferred-Switch-Gateway,inferred_network_infrastructure,BACnet/SC,bldg:network_2401,2401,star,,,,,,,False,bldg:network_2401,NONE
+bldg:network_888_hub,bsm:InferredNetworkDevice,Ethernet Switch (Inferred net 888),Inferred-Switch-Gateway,inferred_network_infrastructure,BACnet/IP,bldg:network_888,888,star,,172.31.222.64/26,255.255.255.192,172.31.222.65,,,False,bldg:network_888,NONE
+bldg:gateway_172_31_222_65,bsm:InferredNetworkDevice,Default Gateway 172.31.222.65 (NAT 172.31.239.22),Inferred-Switch-Gateway,inferred_network_infrastructure,BACnet/IP,bldg:network_888,888,star,,172.31.222.65,255.255.255.192,172.31.239.22,,,True,bldg:network_888,NONE
+bldg:bacnet_device_101,bsm:Controller,BAC0,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,172.31.222.112:47810,172.31.222.112,255.255.255.192,172.31.222.65,,,False,,NONE
+bldg:bacnet_device_101999,bsm:Controller,BACnet device 101999,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_10220,bsm:Controller,ZN341v+ Restrooms 20,ZN341V+,zn341vplus,ms/tp,bldg:network_102,102,bus,20,,,,Z3P364082P,DBID:1:861901,False,,NONE
+bldg:bacnet_device_10221,bsm:Controller,ZN341v+ Show Case,ZN341V+,zn341vplus,ms/tp,bldg:network_102,102,bus,21,,,,Z3P564548P,DBID:1:870500,False,,NONE
+bldg:bacnet_device_10222,bsm:Controller,ZN341v+ Break Room,ZN341V+,zn341vplus,ms/tp,bldg:network_102,102,bus,22,,,,Z3P563398P,DBID:1:870506,False,,NONE
+bldg:bacnet_device_10233,bsm:Controller,ZN341v+ Admin office 33,ZN341V+,zn341vplus,ms/tp,bldg:network_102,102,bus,33,,,,Z3P843426N,DBID:1:856281,False,,NONE
+bldg:bacnet_device_10234,bsm:Controller,ZN341v+ Test Lab 50,ZN341V+,zn341vplus,ms/tp,bldg:network_102,102,bus,50,,,,Z3P460668P,DBID:1:863124,False,,NONE
+bldg:bacnet_device_1610100,bsm:Controller,Controller 0,UPC Open,bacnet_device,bacnet/ip,bldg:network_3011,888,star,0,,,,,,False,,NONE
+bldg:bacnet_device_1610102,bsm:Controller,Controller 2,UPC Open,bacnet_device,bacnet/ip,bldg:network_3011,888,star,2,,,,,,False,,NONE
+bldg:bacnet_device_1610104,bsm:Controller,Controller 4,UPC Open,bacnet_device,bacnet/ip,bldg:network_3011,888,star,4,,,,,,False,,NONE
+bldg:bacnet_device_240000,bsm:Router,OF-G5CE,G5CE,g5ce,bacnet/ip,bldg:network_888,888,star,172.31.222.104:47810,172.31.222.104,255.255.255.192,172.31.222.65,RT29500I7P,DBID:1:907586,True,bldg:network_2400,NONE
+bldg:bacnet_device_240001,bsm:Controller,CM07A New PIU,ZN341A,zn341a,arcnet,bldg:network_2400,2400,bus,3,,,,Z3A9B00BWP,DBID:1:907606,False,,NONE
+bldg:bacnet_device_240002,bsm:Controller,CM08A New VAV,ZN341A,zn341a,arcnet,bldg:network_2400,2400,bus,2,,,,Z3A9B00ACP,DBID:1:907613,False,,NONE
+bldg:bacnet_device_240003,bsm:Router,AAR 1st Floor,AAR,bacnet_device,bacnet/ip,bldg:network_2400,888,star,1,,,,,,True,,NONE
+bldg:bacnet_device_240004,bsm:Router,G5RE BACnet/SC,G5RE,bacnet_device,bacnet/ip,bldg:network_2401,888,star,00-00-00-03-a9-84,,,,,,True,bldg:network_888,NONE
+bldg:bacnet_device_260000,bsm:Router,G5CE - Advantec,G5CE,g5ce,bacnet/ip,bldg:network_888,888,star,172.31.222.106:47810,172.31.222.106,255.255.255.192,172.31.222.65,RT31800E4Q,DBID:1:909865,True,,NONE
+bldg:bacnet_device_260001,bsm:Router,advantec ls-cpu,LS-CPU,bacnet_device,bacnet/ip,bldg:network_888,888,star,172.31.222.123:47810,172.31.222.123,255.255.255.192,172.31.222.65,,,True,,NONE
+bldg:bacnet_device_260010,bsm:Controller,BACnet device 260010,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_260011,bsm:Controller,BACnet device 260011,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_260012,bsm:Controller,BACnet device 260012,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_260013,bsm:Controller,BACnet device 260013,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_260014,bsm:Controller,BACnet device 260014,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_300355,bsm:Controller,BACnet device 300355,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_300801,bsm:Controller,BACnet device 300801,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_3010001,bsm:Controller,CM01 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,1,,,,Z3P494963P,DBID:1:867461,False,,NONE
+bldg:bacnet_device_3010002,bsm:Controller,CM02 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,2,,,,Z3P495218P,DBID:1:867470,False,,NONE
+bldg:bacnet_device_3010003,bsm:Controller,CM03 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,3,,,,Z3P496074P,DBID:1:867477,False,,NONE
+bldg:bacnet_device_3010004,bsm:Controller,CM04 ZN341_4,ZN341A,zn341a,arcnet,bldg:network_30100,30100,bus,4,,,,Z3A76002OP,DBID:1:867484,False,,NONE
+bldg:bacnet_device_3010005,bsm:Controller,CM05 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,5,,,,Z3P495106P,DBID:1:867491,False,,NONE
+bldg:bacnet_device_3010006,bsm:Controller,CM06 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,6,,,,Z3P514115P,DBID:1:867498,False,,NONE
+bldg:bacnet_device_3010007,bsm:Controller,CM07 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,7,,,,Z3P514130P,DBID:1:867505,False,,NONE
+bldg:bacnet_device_3010008,bsm:Controller,CM08 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,8,,,,Z3P514114P,DBID:1:867512,False,,NONE
+bldg:bacnet_device_3010009,bsm:Controller,CM09 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,9,,,,Z3P492886P,DBID:1:867519,False,,NONE
+bldg:bacnet_device_3010010,bsm:Controller,CM10 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,10,,,,Z3P495334P,DBID:1:867526,False,,NONE
+bldg:bacnet_device_3010011,bsm:Controller,CM11 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,11,,,,Z3P580901N,DBID:1:867533,False,,NONE
+bldg:bacnet_device_3010012,bsm:Controller,CM12 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,12,,,,Z3P495148P,DBID:1:867540,False,,NONE
+bldg:bacnet_device_3010013,bsm:Controller,CM13 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,13,,,,Z3P494964P,DBID:1:867547,False,,NONE
+bldg:bacnet_device_3010014,bsm:Controller,CM14 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,14,,,,Z3P514116P,DBID:1:867554,False,,NONE
+bldg:bacnet_device_3010015,bsm:Controller,CM15 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,15,,,,Z3P513792P,DBID:1:867561,False,,NONE
+bldg:bacnet_device_3010016,bsm:Controller,CM16 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,16,,,,Z3P4C0639P,DBID:1:867568,False,,NONE
+bldg:bacnet_device_3010017,bsm:Controller,CM17 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,17,,,,Z3P540774P,DBID:1:867575,False,,NONE
+bldg:bacnet_device_3010018,bsm:Controller,CM18 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,18,,,,Z3P514131P,DBID:1:867582,False,,NONE
+bldg:bacnet_device_3010019,bsm:Controller,CM19 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,19,,,,Z3P532458P,DBID:1:867589,False,,NONE
+bldg:bacnet_device_301002,bsm:Router,Router: 02 AMR/UNI-32,UNI/32,user-defined,arcnet,bldg:network_4401,4401,bus,2,,,,AMR28075P,DBID:1:5753,True,bldg:network_102,MSTP_102_HIGH_RETRY_BOTTLENECK
+bldg:bacnet_device_3010020,bsm:Controller,CM20 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,20,,,,Z3P514129P,DBID:1:867596,False,,NONE
+bldg:bacnet_device_3010021,bsm:Controller,CM21 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,21,,,,Z3P513972P,DBID:1:867603,False,,NONE
+bldg:bacnet_device_3010022,bsm:Controller,CM22 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,22,,,,Z3P514113P,DBID:1:867610,False,,NONE
+bldg:bacnet_device_3010023,bsm:Controller,CM23 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,23,,,,Z3P513973P,DBID:1:867617,False,,NONE
+bldg:bacnet_device_3010024,bsm:Controller,CM24 ZN341_4,ZN341V+,zn341vplus,arcnet,bldg:network_30100,30100,bus,24,,,,Z3P964570N,DBID:1:867624,False,,NONE
+bldg:bacnet_device_301003,bsm:Router,Router: 03 ACME,WebPRTL,webprtl,arcnet,bldg:network_4401,4401,bus,3,,,,PWB320012N,DBID:1:159820,True,bldg:network_3011,NONE
+bldg:bacnet_device_301004,bsm:Router,Router: 04 AAR (2nd Flr),AAR,bacnet_device,bacnet/ip,bldg:network_4401,888,star,4,,,,,,True,bldg:network_30100,NONE
+bldg:bacnet_device_301005,bsm:Controller,Metering ME812u CM05,ME812u,me_812_u,arcnet,bldg:network_4401,4401,bus,5,,,,M8U1B0169P,DBID:1:869127,False,,NONE
+bldg:bacnet_device_301010,bsm:Controller,Veris 8053: M0100 CM10,M0100,m0100,arcnet,bldg:network_4401,4401,bus,10,,,,E23320002N,DBID:1:775966,False,,NONE
+bldg:bacnet_device_301099,bsm:Controller,BAS Core Room  HPC CM99,BACnet-Std,user-defined,arcnet,bldg:network_4401,4401,bus,99,,,,,DBID:1:854563,False,,NONE
+bldg:bacnet_device_301101,bsm:Router,ME-LGR200 (Server Room) (BBMD),ME-LGR200,me_lgr_200,bacnet/ip,bldg:network_888,888,star,172.31.222.98:47810,172.31.222.98,255.255.255.192,172.31.222.65,M207C0002N,DBID:1:855198,True,bldg:network_4401,NONE
+bldg:bacnet_device_301106,bsm:Controller,CM06 SE6104sp,SE6104sp,se6104sp,ms/tp,bldg:network_3011,3011,bus,6,,,,S6P16000XQ,DBID:1:909967,False,,NONE
+bldg:bacnet_device_301107,bsm:Controller,CM07 SE6104sp,SE6104sp,se6104sp,ms/tp,bldg:network_3011,3011,bus,7,,,,S6P160029Q,DBID:1:909976,False,,NONE
+bldg:bacnet_device_527000,bsm:Controller,BACnet device 527000,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_71101,bsm:Controller,MES eBox - Showcase,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,172.31.222.99,172.31.222.99,255.255.255.0,0.0.0.0,,,False,,SUBNET_MASK_MISMATCH_255.255.255.0_VS_/26
+bldg:bacnet_device_71102,bsm:Controller,BACnet device 71102,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:bacnet_device_wildcard,bsm:Controller,BACnet device wildcard (*): bound at runtime,BACnet-Std,bacnet_device,bacnet/ip,bldg:network_888,888,star,,,,,,,False,,NONE
+bldg:area1_area2_piu22_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-22_IAQVentCtrl_Zone5,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909881,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_11_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-11_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910007,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_12_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-12_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910010,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_13_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-13_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910015,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_14_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-14_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910018,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_15_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-15_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910021,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_16_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-16_IAQVentCtrl_Zone2,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909924,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_17_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-17_IAQVentCtrl_Zone4,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909928,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_18_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-18_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910024,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_19_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-19_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910027,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_1_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-1_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909984,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_20_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-20_IAQVentCtrl_Zone1,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909931,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_2_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-2_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909988,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_3_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-3_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909991,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_4_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-4_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909994,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_5_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-5_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909997,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_6_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-6_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910000,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_7_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-7_IAQVentCtrl_Zone3,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909905,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_piu_2_8_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 2-8_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910003,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area2_rtu_2_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: RTU 2_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:909944,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area5_rmapctrl_ctrl_logical,bsm:Controller,Logical Controller: RMAPCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:911146,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_piu_1_iaqventctrl_zone2_ctrl_logical,bsm:Controller,Logical Controller: PIU 1_IAQVentCtrl_Zone2,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910591,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_piu_5_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: PIU 5_IAQVentCtrl_Zone4,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910542,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_piu_9_iaqventctrl_zone5_ctrl_logical,bsm:Controller,Logical Controller: PIU 9_IAQVentCtrl_Zone5,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910588,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_rtu_1_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: RTU 1_IAQVentCtrl,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910636,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_vav_5_iaqventctrl_ctrl_logical,bsm:Controller,Logical Controller: VAV 5_IAQVentCtrl_Zone1,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910535,False,bldg:bacnet_device_260000,NONE
+bldg:area1_area6_vav_6_iaqventctrl_zone3_ctrl_logical,bsm:Controller,Logical Controller: VAV 6_IAQVentCtrl_Zone3,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910583,False,bldg:bacnet_device_260000,NONE
+bldg:area1_testairflow_flr1_ctrl_logical,bsm:Controller,Logical Controller: testairflow_flr1,IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_888,888,star,,,,,,DBID:1:910103,False,bldg:bacnet_device_260000,NONE
+bldg:ec_1st_floor_piu_10_1_ctrl_logical,bsm:Controller,Logical Controller: PIU 10 (NSA Offices),IAQVent-SubController,logical_controller,bacnet/ip,bldg:network_4401,888,star,,,,,,DBID:1:46350,False,bldg:bacnet_device_301002,NONE

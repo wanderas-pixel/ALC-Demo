@@ -1,0 +1,15 @@
+google-adk>=1.0.0
+google-cloud-aiplatform[adk,agent_engines]>=1.93.0
+google-genai>=1.10.0
+google-cloud-bigquery>=3.27.0
+google-auth>=2.35.0
+requests>=2.32.0
+cloudpickle>=3.0.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+opentelemetry-api>=1.28.0
+opentelemetry-sdk>=1.28.0
+opentelemetry-exporter-gcp-trace>=1.8.0
+opentelemetry-exporter-gcp-monitoring>=1.8.0a0
+pydantic>=2.9.0
+pyyaml>=6.0.2

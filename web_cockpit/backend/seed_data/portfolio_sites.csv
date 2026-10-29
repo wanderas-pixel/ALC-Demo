@@ -1,0 +1,6 @@
+site_id,site_name,city,facility_type,gross_sqft,floors_count,equipment_count,bacnet_controllers_count,active_raw_alarms,correlated_incidents,alarm_noise_reduction_pct,mttr_baseline_hours,mttr_autonomous_minutes,zone_comfort_compliance_pct,identified_annual_energy_savings_usd,identified_co2_reduction_tons,sla_status
+ACME-SITE-001,ACME Emerald Crest HQ (Hero Site),"Atlanta, GA",Commercial R&D & Corporate Campus,185000,2,126,90,38,4,89.5,4.2,8.0,99.0,18400,42.0,AT_RISK_PREDICTIVE
+ACME-SITE-002,ACME Midwest Logistics & Cold Chain Hub,"Indianapolis, IN",Industrial Cold Storage & Distribution,420000,1,214,148,19,2,89.5,5.1,11.0,99.6,46200,98.5,HEALTHY
+ACME-SITE-003,ACME Northeast Life Sciences Lab,"Boston, MA",Cleanroom & Biopharma R&D,260000,4,310,240,11,1,90.9,3.8,7.5,99.8,31900,64.2,HEALTHY
+ACME-SITE-004,ACME Sunbelt Precision Manufacturing Plant,"Charlotte, NC",Industrial Manufacturing,510000,2,285,195,24,3,87.5,4.7,9.5,98.4,54800,118.0,WARNING_ENERGY_DRIFT
+ACME-SITE-005,ACME Pacific Tower Regional Center,"San Jose, CA",Class-A Commercial Office,315000,6,198,152,8,1,87.5,3.9,6.5,99.4,22700,39.4,HEALTHY

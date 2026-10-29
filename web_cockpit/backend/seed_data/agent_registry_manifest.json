@@ -1,0 +1,149 @@
+{
+  "registry_name": "acme-abo-agent-registry",
+  "organization": "ACME Co.",
+  "project_id": "genai-demos-391416",
+  "project_number": "101296135052",
+  "location": "us-central1",
+  "runtime_target": "google-cloud-agent-platform-runtime (Vertex AI Agent Engine)",
+  "reasoning_engine_resource": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+  "gateway_endpoint": "https://acme-abo-agent-gateway-101296135052.us-central1.run.app",
+  "gateway_service_account": "sa-abo-agent-gateway@genai-demos-391416.iam.gserviceaccount.com",
+  "cockpit_service_account": "sa-cockpit-cloudrun@genai-demos-391416.iam.gserviceaccount.com",
+  "protocol": "A2A-v1.0+ADK",
+  "telemetry_standard": "OpenTelemetry-GenAI-v1.28 (Cloud Trace + Cloud Monitoring + Cloud Logging)",
+  "registered_agents": [
+    {
+      "agent_id": "registry://acme-abo-agent-registry/abo_supervisor_agent:2.0.0",
+      "name": "abo_supervisor_agent",
+      "display_name": "ACME Building Operations Supervisor Agent",
+      "version": "2.0.0",
+      "role": "ROOT_ORCHESTRATOR",
+      "model": "gemini-2.5-flash",
+      "runtime": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+      "agent_identity": {
+        "principal": "principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-supervisor",
+        "gcp_service_account": "sa-agent-supervisor@genai-demos-391416.iam.gserviceaccount.com",
+        "auth_mode": "WORKLOAD_IDENTITY_OIDC_MTLS",
+        "allowed_delegations": [
+          "alarm_triage_agent",
+          "cross_layer_rca_agent",
+          "energy_optimization_agent",
+          "remediation_dispatch_agent"
+        ]
+      },
+      "capabilities": [
+        "incident-prioritization-by-rec-sla",
+        "multi-agent-a2a-delegation",
+        "live-fault-wave-orchestration"
+      ]
+    },
+    {
+      "agent_id": "registry://acme-abo-agent-registry/alarm_triage_agent:2.0.0",
+      "name": "alarm_triage_agent",
+      "display_name": "Alarm Triage & Storm Deduplication Agent",
+      "version": "2.0.0",
+      "role": "SPECIALIST_SUBAGENT",
+      "model": "gemini-2.5-flash",
+      "runtime": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+      "agent_identity": {
+        "principal": "principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-triage",
+        "gcp_service_account": "sa-agent-triage@genai-demos-391416.iam.gserviceaccount.com",
+        "auth_mode": "WORKLOAD_IDENTITY_OIDC_MTLS",
+        "scoped_permissions": [
+          "bigquery.tables.getData:acme_abo_telemetry.bas_events*",
+          "bigquery.graphs.traverse:acme_abo_telemetry.acme_building_graph"
+        ]
+      },
+      "bound_tools": [
+        "query_active_alarms_and_root_causes",
+        "traverse_upstream_impact_chain"
+      ],
+      "capabilities": [
+        "sympathetic-alarm-storm-suppression",
+        "topological-blast-radius-clustering"
+      ]
+    },
+    {
+      "agent_id": "registry://acme-abo-agent-registry/cross_layer_rca_agent:2.0.0",
+      "name": "cross_layer_rca_agent",
+      "display_name": "Cross-Layer Mechanical vs. BACnet RCA Agent",
+      "version": "2.0.0",
+      "role": "SPECIALIST_SUBAGENT",
+      "model": "gemini-2.5-flash",
+      "runtime": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+      "agent_identity": {
+        "principal": "principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-rca",
+        "gcp_service_account": "sa-agent-rca@genai-demos-391416.iam.gserviceaccount.com",
+        "auth_mode": "WORKLOAD_IDENTITY_OIDC_MTLS",
+        "scoped_permissions": [
+          "bigquery.graphs.traverse:acme_abo_telemetry.acme_building_graph",
+          "bigquery.tables.getData:acme_abo_telemetry.telemetry_ts*"
+        ]
+      },
+      "bound_tools": [
+        "traverse_upstream_impact_chain",
+        "verify_cross_layer_bacnet_vs_mechanical",
+        "get_point_timeseries_window"
+      ],
+      "capabilities": [
+        "brick-hvac-feeds-traversal",
+        "bacnet-mstp-arcnet-ip-sc-diagnostics",
+        "cyber-vs-physical-fault-isolation"
+      ]
+    },
+    {
+      "agent_id": "registry://acme-abo-agent-registry/energy_optimization_agent:2.0.0",
+      "name": "energy_optimization_agent",
+      "display_name": "Energy & Peer-Cohort Drift Optimizer Agent",
+      "version": "2.0.0",
+      "role": "SPECIALIST_SUBAGENT",
+      "model": "gemini-2.5-flash",
+      "runtime": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+      "agent_identity": {
+        "principal": "principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-energy",
+        "gcp_service_account": "sa-agent-energy@genai-demos-391416.iam.gserviceaccount.com",
+        "auth_mode": "WORKLOAD_IDENTITY_OIDC_MTLS",
+        "scoped_permissions": [
+          "bigquery.models.predict:acme_abo_telemetry.*",
+          "bigquery.tables.getData:acme_abo_telemetry.v_peer_cohort_anomalies"
+        ]
+      },
+      "bound_tools": [
+        "detect_peer_cohort_zscore_anomalies",
+        "evaluate_timeseries_forecast_and_drift",
+        "get_point_timeseries_window"
+      ],
+      "capabilities": [
+        "peer-cohort-zscore-outlier-detection",
+        "timesfm-predictive-thermal-breach-forecast",
+        "simultaneous-heating-cooling-waste-audit"
+      ]
+    },
+    {
+      "agent_id": "registry://acme-abo-agent-registry/remediation_dispatch_agent:2.0.0",
+      "name": "remediation_dispatch_agent",
+      "display_name": "Remediation & Safe BACnet Priority-8 Dispatch Agent",
+      "version": "2.0.0",
+      "role": "SPECIALIST_SUBAGENT_HITL_GATED",
+      "model": "gemini-2.5-flash",
+      "runtime": "projects/101296135052/locations/us-central1/reasoningEngines/5782923462607634432",
+      "agent_identity": {
+        "principal": "principal://agents.googleapis.com/projects/genai-demos-391416/locations/us-central1/agentIdentities/sa-agent-remediation",
+        "gcp_service_account": "sa-agent-remediation@genai-demos-391416.iam.gserviceaccount.com",
+        "auth_mode": "WORKLOAD_IDENTITY_OIDC_MTLS_PLUS_HITL_OBO",
+        "scoped_permissions": [
+          "workflows.executions.run:acme-shacl-bacnet-gate"
+        ]
+      },
+      "bound_tools": [
+        "propose_safe_bacnet_write_property",
+        "create_work_order_ticket"
+      ],
+      "capabilities": [
+        "shacl-ashrae36-safety-envelope-validation",
+        "hitl-staged-bacnet-priority-8-write",
+        "automated-cmms-work-order-dispatch"
+      ]
+    }
+  ]
+}
