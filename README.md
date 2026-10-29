@@ -245,10 +245,6 @@ sequenceDiagram
 │   ├── demo_admin_cli.py                      # CLI utility to trigger scenarios and reset demo state
 │   └── Dockerfile                             # Containerized data generator job
 │
-├── video_generator/                           # GCP-Native Automated Demo Video & Narration Pipeline
-│   ├── generate_demo_video.py                 # Cloud TTS synthesis + Playwright 1080p UI walkthrough + FFmpeg
-│   └── cloudbuild.yaml                        # Google Cloud Build pipeline to render & upload MP4 to GCS
-│
 └── Source Data/                               # Canonical Multi-Site Graph, Point Catalog & Telemetry Exports
     ├── README.md                              # Schema documentation for all CSV/JSON seed files
     ├── portfolio_sites.csv                    # 5 enterprise buildings across Atlanta, Chicago, Boston, Austin, Seattle
@@ -381,3 +377,4 @@ The repository includes deterministic trajectory evaluation suites in [`agents/e
   1. `check_bacnet_network_health` **must** execute before `trace_upstream_root_cause`.
   2. `validate_shacl_and_ashrae_safety` **must** return `SHACL_CONFORMS` before `stage_hitl_bacnet_priority8_write` can be invoked.
   3. Zero direct hardware writes are permitted without Human-in-the-Loop approval.
+
